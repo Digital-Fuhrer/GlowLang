@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="..\styles\StartPage.css">
+    <link rel="stylesheet" href="..\styles\reset.css">
+    <title>GlowLang</title>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+    </header>
+        <main>
+                <div class="textContainer">
+                    <h2 class="mainText">Добро пожаловать на Glow Lang, вашу яркую платформу для эффективной практики языка! Освещай знания, сияй в разговорах - ваша языковая яркость начинается здесь.</h2>
+                </div>
+                <div class="mountainsContainer">
+                    <div class="firstBeam"></div>
+                    <div class="secondBeam"></div>
+                    <div class="thirdBeam"></div>
+                    <div class="fourthBeam"></div>
+                        <div class="lightHouseContainer">
+                            <div class="lightHouse"></div>
+                            <div class="lightHouseGlow"></div>
+                        </div>
+                    <div class="backMountains"></div>
+                    <div class="frontMountains"></div>
+                    <div class="buttonContainer">
+                        <div class="loginContainer">
+                            <button class="login" onclick="login()">Войти</button>
+                                <script>
+                                    function login(){
+                                    window.location.href='../html/loginPage.html';
+                                    }
+                                </script>
+                            <div class="buttonShadowLogin"></div>
+                        </div>
+                        <div class="registContainer">
+                            <button class="regist" onclick="regist()">Зарегистрироваться</button>
+                                <script>
+                                    function regist(){
+                                    window.location.href='../html/registration.html';
+                                    }
+                                </script>
+                            <div class="buttonShadowRegist"></div>
+                        </div>
+                    </div>
+            </div>
+        </main>
+    <footer>
+        <div class="links">
+            <ul class="textBlock">
+                <li class="authorsTitle text">Авторы</li>
+                <li class="firstName text" onclick="firstName()">Логвинов Иван</li>
+                <script>
+                    function firstName(){
+                        window.open("https://t.me/Feku11");
+                    }
+                </script>
+                <li class="secondName text" onclick="secondName()">Карпов Денис</li>
+                <script>
+                    function secondName(){
+                        window.open("https://t.me/karpov_denis2");
+                    }
+                </script>
+                <li class="thirdName text" onclick="thirdName()">Субботин Артем</li>
+                <script>
+                   function thirdName(){
+                        window.open("https://t.me/sely0dkin");
+                    }
+                </script>
+            </ul>
+            <ul class="textBlock">
+                <li class="methods text">О нас</li>
+                <li class="help text">Помощь</li>
+                <li class="confident text">©2023 GlowLang</li>
+            </ul>
+            <ul class="textBlock">
+                <li class="russian text">Русский</li>
+                <li class="english text">English</li>
+                <li class="deutsch text">Deutsch</li>
+                <li class="french text">French</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

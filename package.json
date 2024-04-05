@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "intersection-observer": "^0.12.2",
+    "jquery": "^3.7.1",
+    "svgpath": "^2.6.0"
+  }
+}

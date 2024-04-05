@@ -1,0 +1,414 @@
+body {
+    background: #05727B;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+    /*Анимации*/
+
+    /*
+    Появление передних гор снизу.
+    */
+    @keyframes frontMountainsAnimation { 
+        0% { transform: translateY(50%)}
+        100% { transform: translateY(0%)}
+    }
+    /*
+    Появление задних гор снизу.
+    */
+    @keyframes beamsAnimation {
+        0% {opacity: 0;}
+        100% {opacity: .3;}
+    }
+    @keyframes backMountainsAnimation {
+        0% { transform: translateY(50%)}
+        100% { transform: translateY(0%)}
+    }
+    /*
+    Появление кнопок.
+    */
+    @keyframes buttonsAnimation {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    /*
+    Появление теней под кнопками.
+    */
+    @keyframes shadowsAnimation {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    /*
+    Появление сверху заголовка.
+    */
+    @keyframes titleAnimmation {
+        0% { transform: translateY(-50%); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes firstBeamRotating {
+        0% { transform: rotate(35deg); opacity: .3; }
+        50% { transform: rotate(25deg); opacity: .1; }
+        100% { transform: rotate(35deg); opacity: .3; }
+    }
+    @keyframes secondBeamRotating {
+        0% { transform: rotate(-15deg); opacity: .3; }
+        50% { transform: rotate(10deg); opacity: .1; }
+        100% { transform: rotate(-15deg); opacity: .3; }
+    }
+    @keyframes thirdBeamRotating {
+        0% { transform: rotate(-5deg); opacity: .3; }
+        50% { transform: rotate(-25deg); opacity: .2; }
+        100% { transform: rotate(-5deg); opacity: .3; }
+    }
+    @keyframes fourthBeamRotating {
+        0% { transform: rotate(-45deg); opacity: .3; }
+        50% { transform: rotate(-65deg); opacity: .2; }
+        100% { transform: rotate(-45deg); opacity: .3; }
+    }
+/*
+Header с Лого в верхнем левом углу, увеличивается при наведении.
+*/
+header {
+    /*
+    Лого
+    */
+    .logo {    
+        width: 350px;
+        height: 350px;
+        background: url(../pictures/GlowLogo.png);
+        background-repeat: no-repeat;
+        filter: drop-shadow(0px 0px 10px #00000075);
+        position: absolute;
+        left: -100px;
+        top: -150px; 
+        z-index: -1;
+        transition: all .5s;
+    }
+    /*
+    Лого при наведении (увеличивается на 50 пикселей)
+    */
+    .logo:hover {
+        width: 400px;
+        height: 400px;
+        background: url(../pictures/GlowLogoHover.png);
+    }
+}
+/*
+Блок main включает все кроме лого и нижнего футера.
+*/
+main {
+    /*
+    Отступ сверху 90 пикселей.
+    */
+    display: flex;
+    margin: 90px auto 0 auto;
+    /*
+    Основной текст на странице - заголовок.
+    */
+    .textContainer {
+        display: flex;
+        width: 100%;
+        height: 300px;
+        position: absolute;
+    }
+    .mainText {
+        width: 900px;
+        height: 350px;
+        font-size: 48px;
+        transition: all .5s;
+        animation: titleAnimmation 1s;
+        margin-left: 50%;
+        margin-top: 5%;
+    }
+    /*
+    Подсвечивание заголовка при наведении.
+    */
+    .mainText:hover {
+        filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.699));
+    }
+    .mountainsContainer {
+        margin-top: 600px;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        min-height: calc(100vh - 360px);
+    }
+    /*
+    Передние горы.
+    */
+    .frontMountains {
+        width: 100%;
+        height: 600px;
+        position: absolute;
+        background: url(../pictures/frontMountains.png);
+        z-index: -2;
+        animation: frontMountainsAnimation 1s;
+        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.25));
+    }
+    /*
+    Стили задних гор.
+    */
+    .backMountains {
+        width: 100%;
+        height: 600px;
+        background: url(../pictures/backMountains.png);
+        position: absolute;
+        z-index: -4;
+        animation: backMountainsAnimation 1.5s;
+        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.25));
+    }
+    .buttonContainer {
+        height: 250px;
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-left: 200px;
+        margin-bottom: 60px;
+    }
+    /*
+    Стили обеих кнопок и теней к ним.
+    */
+    .loginContainer {
+        width: 320px;
+        height: 95px;
+    }
+    .registContainer {
+        width: 320px;
+        height: 95px;
+    }
+    .login, .buttonShadowLogin, .regist, .buttonShadowRegist {
+        top: 810px;
+        left: 1115px;
+        border-radius: 30px;
+        border-style: none;
+        width: 320px;
+        height: 85px;
+    } 
+    .buttonShadowLogin, .buttonShadowRegist {
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
+    /*
+    Кнопка начать.
+    */
+    .login {
+        background: linear-gradient(180deg, #C6CC8C 0%, #9DCC8B 100%);
+        filter: drop-shadow(0px 0px 30px rgba(198, 204, 140, 0.60));
+        padding: 0;
+        z-index: 1;
+        color: white;
+        font-size: 32px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-weight: bold;
+        animation: buttonsAnimation 1s;
+    }
+    /*
+    Изменение цвета при наведении на кнопку начать.
+    */
+    .login:hover {
+        filter: drop-shadow(0px 0px 50px rgba(198, 204, 140, 0.60));
+        color: black;
+    }
+    /*
+    Анимация клика на кнопку начать.
+    */
+    .login:active {
+        margin-top: 10px;  
+    }
+    .login:active ~ .buttonShadowLogin{
+        margin-top: -85px;
+    }
+    /*
+    Тень к кнопке начать.
+    */
+    .buttonShadowLogin, .buttonShadowRegist {
+        margin-top: -75px;
+        z-index: -1;
+        opacity: 0;
+        animation: shadowsAnimation 1s forwards;
+        animation-delay: 1s;
+    } 
+    .buttonShadowLogin {
+        background: linear-gradient(180deg, #ADB17E 0%, #7AA06C 100%);
+    }
+    /*
+    Стили кнопки регистрации.
+    */
+    .regist {
+        background: linear-gradient(180deg, #015A71 0%, #112C56 100%);
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.50);
+        padding: 0;
+        z-index: 1;
+        font-size: 24px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-weight: bold;
+        animation: buttonsAnimation 1s;
+    }
+    /*
+    Анимация наведения на кнопку регистрации.
+    */
+    .regist:hover {
+        box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.50);
+        color: black;
+    }
+    /*
+    Анимация нажатия на кнопку регистрации.
+    */
+    .regist:active {
+        margin-top: 10px;  
+    }
+    .regist:active ~ .buttonShadowRegist{
+        margin-top: -85px;
+    }
+    /*
+    Стили тени к кнопке регистрации.
+    */
+    .buttonShadowRegist {
+        background: linear-gradient(180deg, #05495A 0%, #10264d 100%);
+    }
+    /*
+    Контейнер с маяком.
+    */
+    .lightHouseContainer {
+        position: absolute;
+        width: 700px;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 300px;
+        z-index: -3;
+    }
+    /*
+    Расположение лучей исходящих от маяка.
+    */
+    .firstBeam, .secondBeam, .thirdBeam, .fourthBeam {
+        position: absolute;
+        height: 50px;
+        opacity: .3;
+        z-index: -3;
+        margin-bottom: 850px;
+        overflow: hidden;
+        opacity: 0;
+    } 
+    .firstBeam {
+        width: 1200px;
+        background: linear-gradient(125deg, #C6CC8C 40%, #ffffff00 60%);
+        transform: rotate(25deg);
+        transform-origin: left;
+        margin-left: 320px;
+        animation: firstBeamRotating 5s infinite, beamsAnimation 2s forwards;
+        animation-delay: 1s;
+    }
+    .secondBeam {
+        width: 1200px;
+        background: linear-gradient(110deg, #C6CC8C 40%, #ffffff00 60%);
+        transform: rotate(10deg);
+        transform-origin: left;
+        margin-left: 350px;
+        animation: secondBeamRotating 7s infinite, beamsAnimation 2s forwards;
+        animation-delay: 1s;
+    }
+    .thirdBeam {
+        width: 350px;
+        background: linear-gradient(-125deg, #C6CC8C , #ffffff00);
+        transform: rotate(-25deg);
+        transform-origin: right;
+        left: 0;
+        animation: thirdBeamRotating 7s infinite, beamsAnimation 2s forwards;
+        animation-delay: 1s;
+    }
+    .fourthBeam {
+        width: 350px;
+        background: linear-gradient(-125deg, #C6CC8C, #ffffff00 );
+        transform: rotate(-65deg);
+        transform-origin: right;
+        left: 0;
+        animation: fourthBeamRotating 3s infinite, beamsAnimation 2s forwards;
+        animation-delay: 1s;
+    }
+    /*
+    Стили маяка.
+    */
+    .lightHouse {
+        width: 250px;
+        height: 650px;
+        background: url(../pictures/lightHouse.png);
+        z-index: -1;
+        animation: frontMountainsAnimation 1s;
+    }
+    /*
+    Свечение позади маяка.
+    */
+    .lightHouseGlow {
+        width: 1030px;
+        height: 941px;
+        flex-shrink: 0;
+        border-radius: 1030px;
+        background: radial-gradient(48.1% 48.92% at 50% 48.72%, #93b785bb 0%, rgba(147, 183, 133, 0.00) 100%);
+        position: absolute;
+        z-index: -4;
+        transition: all .5s;
+        animation: frontMountainsAnimation 1s;
+        top: -350px;
+    }
+    /*
+    Свечение позади маяка при наведении на заголовок.
+    */
+    .textContainer:hover ~ .mountainsContainer > .lightHouseContainer > .lightHouseGlow {
+        filter: drop-shadow(0px 0px 5px rgba(222, 231, 191, 0.479));
+    }
+
+}
+footer {
+    width: 100%;
+    height: 360px;
+    background: #033C55;
+    filter: drop-shadow(0px 0px 10px #00000075);
+    z-index: 5;
+        /*
+        Links - контейнер  трем блокам с текстом.
+        */
+    .links {
+
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        /*
+        Стили трех блоков с текстом.
+        */
+        .textBlock {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 24px;
+            width: 300px;
+            height: 170px;
+            margin: 100px 50px 0 50px;
+        }
+        /*
+        Наведение на текст.
+        */
+        .text {
+            transition: all .5s;
+        }
+        .text:hover {
+            filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.699));
+            cursor: default;
+        }
+    }
+    
+}
+@media (min-width: 0px) and (max-width: 1550px) {
+    .firstBeam, .secondBeam, .thirdBeam, .fourthBeam {
+        display: none;
+    }
+    .textBlock {
+        width: 150px;
+    }
+}
