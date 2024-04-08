@@ -1,0 +1,30 @@
+footer {
+
+    height: 350px;
+    z-index: 0;
+
+    background: #033C55;
+    filter: drop-shadow(0px 0px 10px #00000075);
+    .links {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .textBlock {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 18px;
+            height: 170px;
+            margin: 100px 50px 0 50px;
+        }
+
+        .text {
+            transition: all .5s;
+        }
+        .text:hover {
+            filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.699));
+            cursor: default;
+        }
+    }
+}
