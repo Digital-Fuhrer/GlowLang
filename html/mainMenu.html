@@ -403,20 +403,13 @@
         <nav>
             <ul>
                 <li>
-                    <button class="profile">Профиль</button>
+                    <button class="profile" onclick="profile()">Профиль</button>
                     <div class="shadow"></div>
-                </li>
-                <li>
-                    <button class="shop">Магазин</button>
-                    <div class="shadow"></div>
-                </li>
-                <li>
-                    <button class="settings">Настройки</button>
-                    <div class="shadow"></div>
-                </li>
-                <li>
-                    <button class="home">Обучение</button>
-                    <div class="shadow"></div>
+                    <script>
+                        function profile(){
+                        window.location.href='../html/profilePage.html';
+                        }
+                    </script>
                 </li>
                 <li>
                     <button class="exit">Выход</button>

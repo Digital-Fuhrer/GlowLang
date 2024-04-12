@@ -9,6 +9,20 @@ body {
     font-weight: bold;
     color: white;
 }
+@keyframes aside {
+    0% {transform: translateX(-150px)};
+    100% {transform: translateX(0px)};
+}
+@keyframes nav {
+    0% {transform: translateX(150px)};
+    100% {transform: translateX(0px)};
+}
+@keyframes main {
+    0% { opacity: 0;};
+    100% {opacity: 1;};
+}
+
+
 .wrapper {
     display: flex;
 }
@@ -20,6 +34,7 @@ aside {
     width: 300px;
     position: fixed;
     z-index: 1;
+    animation: aside 1s;
 }
 .logo {    
     width: 350px;
@@ -90,23 +105,24 @@ aside > ul > li > button:hover ~ .popup {
 nav {
     display: flex;
     height: 100vh;
-    width: 400px;
+    width: 250px;
     float: right;
     background: url(../pictures/nav.png);
     filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.4));
     right: 0;
     position: fixed;
+    animation: nav 1s;
 }
 nav > ul > li > button {
-    width: 300px;
-    height: 85px;
+    width: 200px;
+    height: 60px;
     border-radius: 15px;
     background: #C0CC8B;
     border: none;
-    margin: 40px 0 0 70px;
+    margin: 20px 0 0 45px;
     color: white;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 20px;
     transition: background .5s;
     cursor: pointer;
 }
@@ -117,31 +133,31 @@ nav > ul > li > button:active {
     transform: translateY(10px);
 }
 nav > ul > li:last-child > button {
-    width: 300px;
-    height: 85px;
+    width: 200px;
+    height: 60px;
     background: #094263;
     position: absolute;
-    bottom: 40px;
+    bottom: 20px;
 }
 nav > ul > li:last-child > button:hover {
     background: #1B587B;
 }
 .shadow {
-    width: 300px;
-    height: 85px;
+    width: 200px;
+    height: 60px;
     border-radius: 15px;
     background: #7EA16D;
     border: none;
-    margin: -75px 0 0 70px;
+    margin: -50px 0 0 45px;
     position: absolute;
     z-index: -1;
 }
 nav > ul > li:last-child > .shadow {
-    width: 300px;
-    height: 85px;
+    width: 200px;
+    height: 60px;
     background: #0C2544;
     position: absolute;
-    bottom: 30px;
+    bottom: 10px;
 }
 
 main {
@@ -149,7 +165,9 @@ main {
     width: 100vw;
     height: 100vh;
     margin-left: 300px;
-    margin-right: 400px;
+    margin-right: 250px;
+    animation: main 5s forwards;
+    
 }
 
 .levels {
@@ -384,8 +402,8 @@ main {
 }
 
 .title {
-    width: 710px;
-    height: 170px;
+    width: 400px;
+    height: 80px;
     background: url(../pictures/title.png);
     background-repeat: no-repeat;
     margin: 30px 0 0 40px;
@@ -413,7 +431,7 @@ main {
     margin-top: -250px;
 }
 p {
-    font-size: 32px;
+    font-size: 20px;
 }
 .title:hover {
     transform: translateY(10px);
