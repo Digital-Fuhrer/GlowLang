@@ -1,0 +1,298 @@
+body {
+    background: #05727B;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+@keyframes clouds {
+    0% { transform: translateY(0px);}
+    50% { transform: translateY(-15px);}
+    100% { transform: translateY(0px);}
+}
+@keyframes decor {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes decorRotate {
+    0% { transform: rotate(45deg); }
+    100% { transform: rotate(0deg); }
+}
+@keyframes onset {
+    0% { transform: translateY(-30px);}
+    100% { transform: translateY(0px);}
+}
+@keyframes onsetBottom {
+    0% { transform: translateY(30px);}
+    100% { transform: translateY(0px);}
+}
+header {
+    /*
+    Лого
+    */
+    .logo {    
+        width: 350px;
+        height: 350px;
+        background: url(../pictures/GlowLogo.png);
+        background-repeat: no-repeat;
+        filter: drop-shadow(0px 0px 10px #00000075);
+        position: absolute;
+        left: -100px;
+        top: -150px; 
+        z-index: 3;
+        transition: all .5s;
+        border-style: none;
+    }
+    /*
+    Лого при наведении (увеличивается на 50 пикселей)
+    */
+    .logo:hover {
+        width: 400px;
+        height: 400px;
+        background: url(../pictures/GlowLogoHover.png);
+    }
+}
+main {
+    .menu {
+        width: 100px;
+        height: 208px;
+        background: url(../pictures/menu.png);
+        position: absolute;
+        bottom: 60px;
+        left: 60px;
+        filter: drop-shadow(0px 0px 10px #00000075);
+        animation: onsetBottom 2s, decor 2s, clouds 3s infinite ease-in-out;
+
+        .repeat {
+            width: 80px;
+            height: 80px;
+            background: url(../pictures/repeat.png);
+
+            .repeatIcon {
+                background: url(../pictures/repeatIcon.png);
+                width: 36px;
+                height: 36px;
+            }
+        }
+        .back {
+            width: 80px;
+            height: 80px;
+            background: url(../pictures/back.png);
+
+            .backIcon {
+            background: url(../pictures/backIcon.png);
+            width: 40px;
+            height: 25px;
+            }
+        }
+        .repeat, .back {
+            margin: 15px 0 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .repeatIcon, .backIcon {
+            margin-bottom: 5px;
+            filter: drop-shadow(0px 0px 10px #00000075);
+        }
+        .repeat:active {
+            background: url(../pictures/repeatActive.png);
+            width: 80px;
+            height: 70px;
+            transform: translateY(9px);
+        }
+        .repeat:active ~ .back{
+            transform: translateY(10px);
+        }
+        .back:active {
+            background: url(../pictures/backActive.png);
+            width: 80px;
+            height: 70px;
+            transform: translateY(9px);
+        }
+    }
+
+    .iconContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 400px;
+
+        .backGlow {
+            width: 1030px;
+            height: 941px;
+            flex-shrink: 0;
+            border-radius: 1030px;
+            background: radial-gradient(48.1% 48.92% at 50% 48.72%, #93B785 0%, rgba(147, 183, 133, 0.00) 100%);
+            position: absolute;
+            z-index: -4;
+            margin-top: 300px;
+            animation: decor 2s forwards;
+        }
+
+        .decor {
+            width: 312px;
+            height: 280px;
+            position: absolute;
+            background: url(../pictures/decor.png);
+            top: 110px;
+            margin-left: 20px;
+            animation: decor 2s forwards, decorRotate 1s forwards;
+            animation-delay: 2s;
+            opacity: 0;
+        }
+
+        .health {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 200px;
+            height: 50px;
+            background: url(../pictures/health.png);
+            animation: onset 1.5s, decor 3s;
+
+            .bar {
+                width: 28px;
+                height: 29px;
+                background: url(../pictures/bar.png);
+                background-repeat: no-repeat;
+            }
+        }
+
+        .icon {
+            display: flex;
+            margin: 24px auto 0 auto;
+            width: 260px; 
+            height: 250px;
+            background: url(../pictures/iconBack.png);
+            filter: drop-shadow(0px 0px 10px #00000075);
+            animation: onset 1s, decor 2s;
+
+            .cloud1, .cloud2 {
+                position: absolute;
+            }
+
+            .cloud1 {
+                width: 155px;
+                height: 81px;
+                background: url(../pictures/firstCloud.png);
+                bottom: 0px;
+                left: -80px;
+                animation: clouds 3s infinite ease-in-out, decor 2s forwards;
+                opacity: 0;
+            }
+            .cloud2 {
+                width: 105px;
+                height: 55px;
+                background: url(../pictures/secondCloud.png);
+                right: -50px;
+                animation: clouds 3s infinite ease-in-out, decor 2s forwards;
+                animation-delay: 1s;
+                opacity: 0;
+            }
+
+            .monsterImage {
+                margin: 30px auto 0 auto;
+                width: 160px;
+                height: 170px;
+                background: url(../pictures/monster.png);
+            }
+        }
+        
+    }
+    .taskContainer {
+        display: flex;
+        flex-direction: column;
+        margin:  0 auto 0 auto;
+        width: 800px;
+        height: 500px;
+        background: linear-gradient( rgba(219, 238, 189, 0.8),  rgba(157, 204, 139, 0.8));
+        border-radius: 40px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.50);
+        animation: onsetBottom 2s, decor 2s;
+
+        .task {
+            margin: auto;
+            width: 750px;
+            height: 250px;
+            background: linear-gradient( rgba(219, 238, 189, 0.8),  rgba(157, 204, 139, 0.8));
+            border-radius: 40px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.50);
+            animation: onsetBottom 2.5s;
+
+            .taskText {
+                font-size: 36px;
+                margin: 25px 30px;
+            }
+        }
+        .answers {
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: auto;
+            width: 750px;
+            height: 150px;
+            background: linear-gradient( rgba(219, 238, 189, 0.8),  rgba(157, 204, 139, 0.8));
+            border-radius: 40px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.50);
+            animation: onsetBottom 2.5s;
+
+            .answer {
+                display: flex;
+                width: 160px;
+                height: 66px;
+                background: url(../pictures/answerButton.png);
+
+                .textAnswer {
+                    margin: 17px 48px;
+                    font-size: 20px;
+                }
+            }
+            .answer:active {
+                height: 58px;
+                background: url(../pictures/activeAnswerButton.png);
+                transform: translateY(5px);
+            }
+        }
+    }
+    /*
+    Контейнер для гор.
+    */
+    .mountainsContainer {
+        margin-top: -550px;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        height: calc(100vh - 350px);
+
+    /*
+    Задние горы.
+    */
+    .backMountains {
+        width: 100%;
+        height: 700px;
+        background: url(../pictures/backMountains.png);
+        position: absolute;
+        z-index: -3;
+    }
+    /*
+    Передние горы.
+    */
+    .frontMountains {
+        width: 100%;
+        height: 600px;
+        background: url(../pictures/frontMountains.png);
+        z-index: -2;
+        display: flex;
+        align-items: center;
+        }
+    }
+
+}

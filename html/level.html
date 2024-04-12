@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="..\styles\level.css">
+    <link rel="stylesheet" href="..\styles\reset.css">
+    <title>GlowLang</title>
+</head>
+<body>
+    <header>
+            <button class="logo"></button>
+    </header>
+    <main>
+        <nav class="menu">
+            <div class="repeat">
+                <div class="repeatIcon"></div>
+            </div>
+            <div class="back" onclick="back()">
+                <div class="backIcon"></div>
+                <script>
+                    function back(){
+                    window.location.href='../html/mainMenu.html';
+                    }
+                </script>
+            </div>
+        </nav>
+        <div class="iconContainer">
+            <div class="health">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="icon">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="monsterImage">
+
+                </div>
+            </div>
+            <div class="backGlow"></div>
+            <div class="decor"></div>
+        </div>
+        <div class="taskContainer">
+            <div class="task">
+                <div class="taskText">Тестовый текст для какого нибудь задания.</div>
+            </div>
+            <div class="answers">
+                <div class="answer1 answer">
+                    <div class="textAnswer">
+                        Ответ
+                    </div>
+                </div>
+                <div class="answer2 answer">
+                    <div class="textAnswer">
+                        Ответ
+                    </div>
+                </div>
+                <div class="answer3 answer">
+                    <div class="textAnswer">
+                        Ответ
+                    </div>
+                </div>
+                <div class="answer4 answer">
+                    <div class="textAnswer">
+                        Ответ
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mountainsContainer">
+            <div class="backMountains"></div>
+            <div class="frontMountains"></div>
+        </div>
+    </main>
+
+</body>
+</html>
