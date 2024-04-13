@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/loginStyle.css">
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/footer.css">
+    <title>GlowLang</title>
+</head>
+<body>
+<%- include('../views/partials/header'); %>
+    <main>
+        <h2 class="loginTitle">Войдите, чтобы начать изучать языки.</h2>
+        <div class="loginWindow">
+            <div class="backGroundGlow"></div>
+            <p class="emailText">Email</p>
+            <input type="text" class="email" name = "name">
+            <p class="passwordText">Пароль</p>
+            <input type="password" class="password" name = "password">
+            <div class="buttonContainer">
+                <div class="loginContainer">
+                    <button class="login" onclick="login()">Войти</button>
+
+                    <div class="buttonShadowLogin"></div>
+                </div>
+                <div class="backContainer">
+                    <button class="back" onclick="back()">Нет аккаунта</button>
+                        <script>
+                            function back(){
+                            window.location.href='/registration';
+                            }
+                        </script>
+                    <div class="buttonShadowBack"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mountainsContainer">
+            <div class="backMountains"></div>
+            <div class="frontMountains">
+            </div>
+        </div>
+    </main>
+<%- include('../views/partials/footer'); %>
+</body>
+</html>

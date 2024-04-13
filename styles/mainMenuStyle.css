@@ -92,7 +92,7 @@ aside > ul > li > button {
     transition: all 1s;
 }
 .popup > p {
-    margin: 30px 0 0 50px;
+    margin: 20px 0 0 50px;
     font-size: 20px;
 }
 aside > ul > li > button:hover ~ .popup {

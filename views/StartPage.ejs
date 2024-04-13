@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/StartPage.css">
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/footer.css">
+    <title>GlowLang</title>
+</head>
+<body>
+<%- include('../views/partials/header'); %>
+    <main>
+            <div class="textContainer">
+                <h2 class="mainText">Добро пожаловать на Glow Lang, вашу яркую платформу для эффективной практики языка! Освещай знания, сияй в разговорах - ваша языковая яркость начинается здесь.</h2>
+            </div>
+            <div class="mountainsContainer">
+                <div class="firstBeam"></div>
+                <div class="secondBeam"></div>
+                <div class="thirdBeam"></div>
+                <div class="fourthBeam"></div>
+                    <div class="lightHouseContainer">
+                        <div class="lightHouse"></div>
+                        <div class="lightHouseGlow"></div>
+                    </div>
+                <div class="backMountains"></div>
+                <div class="frontMountains"></div>
+                <div class="buttonContainer">
+                    <div class="loginContainer">
+                        <button class="login" onclick="login()">Войти</button>
+                            <script>
+                                function login(){
+                                window.location.href='/loginPage';
+                                }
+                            </script>
+                        <div class="buttonShadowLogin"></div>
+                    </div>
+                    <div class="registContainer">
+                        <button class="regist" onclick="regist()">Зарегистрироваться</button>
+                            <script>
+                                function regist(){
+                                window.location.href='/registration';
+                                }
+                            </script>
+                        <div class="buttonShadowRegist"></div>
+                    </div>
+                </div>
+        </div>
+    </main>
+<%- include('../views/partials/footer'); %>
+</body>
+</html>

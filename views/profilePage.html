@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="..\styles\userPage.css">
+    <link rel="stylesheet" href="..\styles\reset.css">
+    <script src="../scripts/userPageScripts.js"></script>
+    <link rel="stylesheet" href="..\styles\footer.css">
+    <title>GlowLang</title>
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="logo()"></div>
+        <script>
+            function logo() {
+            window.location.href='../views/mainMenu.html';
+            }
+        </script>
+    </header>
+        <main>
+            <div class="avatarContainer">
+                <div class="beamsContainer">
+                    <div class="firstBeam beam"></div>
+                    <div class="secondBeam beam"></div>
+                    <div class="thirdBeam beam"></div>
+                    <div class="fourthBeam beam"></div>
+                </div>
+                <div class="cloudsContainer">
+                    <div class="cloud1Container">
+                        <img src="../pictures/cloud1.png" alt="" class="cloud1 cloud">
+                    </div>
+                    <div class="cloud2Container">
+                        <img src="../pictures/cloud2.png" alt="" class="cloud2 cloud">
+                    </div>
+                    <div class="cloud3Container">
+                        <img src="../pictures/cloud3.png" alt="" class="cloud3 cloud">
+                    </div>
+                </div>
+                <div class="avatar">
+                    <img class= "avatarImage" src="../pictures/avatarImage.png" alt="avatar_image">
+                </div>
+                <h2 class="underAvatarText">Name</h2>
+                <div class="backGlow"></div>
+            </div>
+            <div class="mainInfoContainer">
+                <div class="mainInfoWindow">
+                    <div class="starContainer block">
+                        <h2 class="stars blockText">Заработано звезд:</h2>
+                        <div class="valueContainer">
+                            <h2 class="starsValue value">0</h2>
+                            <img src="../pictures/starIcon.png" alt="" class="starsIcon">
+                        </div>
+                    </div>
+                    <div class="levelContainer block">
+                        <h2 class="level blockText">Уровень:</h2>
+                        <div class="valueContainer">
+                            <h2 class="levelValue value">0</h2>
+                            <img src="../pictures/levelIcon.png" alt="" class="levelIcon">
+                        </div>
+                    </div>
+                        <button class="back" onclick="back()">Назад
+                            <div class="buttonShadowBack"></div>
+                        </button>
+                    <script>
+                        function back(){
+                            window.location.href='../views/mainMenu.html';
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="mountainsContainer">
+                <div class="backMountains"></div>
+                <div class="frontMountains"></div>
+            </div>
+        </main>
+        <footer>
+    <div class="links">
+        <ul class="textBlock">
+            <li class="authorsTitle text">Авторы</li>
+            <li class="firstName text" onclick="firstName()">Логвинов Иван</li>
+            <script>
+                function firstName(){
+                    window.open("https://t.me/Feku11");
+                }
+            </script>
+            <li class="secondName text" onclick="secondName()">Карпов Денис</li>
+            <script>
+                function secondName(){
+                    window.open("https://t.me/karpov_denis2");
+                }
+            </script>
+            <li class="thirdName text" onclick="thirdName()">Субботин Артем</li>
+            <script>
+               function thirdName(){
+                    window.open("https://t.me/sely0dkin");
+                }
+            </script>
+        </ul>
+        <ul class="textBlock">
+            <li class="methods text">О нас</li>
+            <li class="help text">Помощь</li>
+            <script>
+
+            </script>
+            <li class="confident text">©2023 GlowLang</li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>
