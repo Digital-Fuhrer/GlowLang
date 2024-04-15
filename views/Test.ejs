@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Test.css">
+    <link rel="stylesheet" href="/reset.css">
+    <title>GlowLang</title>
+</head>
+<body>
+    <%- include('../views/partials/header'); %>
+        <main>
+            <div class="TestWindow">
+                <div class="backGroundGlow"></div>
+                <h2 class="questionsText"> Пройти тест <br> для определения <br> уровня знаний языка?</h2>
+                <div class="buttonContainer">
+                    <div class="buttonFirst">
+                    <div class="buttonFirstShadow"></div>
+                    <button class="answer1" onclick="pass()">Пройти</button>
+                    <script>function pass() {
+                        window.location.href='/Test1';}
+                    </script>
+                    </div>
+                    <div class = "buttonSecond">
+                    <div class="buttonSecondShadow"></div>
+                        <button class="answer2" onclick="byMyself()">Выбрать самому</button>
+                    <script> function byMyself()
+                    {
+                        window.location.href='/LanguageSelection'
+                    }
+                    </script>
+                    </div>
+                </div>
+            </div>
+            <%- include('../views/partials/mountains'); %>
+        </main>   
+</body>
+</html>

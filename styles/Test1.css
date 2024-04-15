@@ -1,0 +1,366 @@
+body {
+    background: #05727B;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+/*
+Появление окна сверху вниз.
+*/
+@keyframes windowAnimation {
+    0% { transform: translateY(-50%)}
+    100% { transform: translateY(0%)}
+}
+/*
+Появление гор 
+*/
+@keyframes frontMountainsAnimation { 
+    0% { transform: translateY(50%)}
+    100% { transform: translateY(0%)}
+}
+@keyframes backMountainsAnimation {
+    0% { transform: translateY(50%)}
+    100% { transform: translateY(0%)}
+}
+
+/*
+Появление свечения и двух кругов позади окна.
+*/
+@keyframes glowAnimation {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+header {
+    /*
+    Лого
+    */
+    .logo {    
+        width: 350px;
+        height: 350px;
+        background: url(/GlowLogo.png);
+        background-repeat: no-repeat;
+        filter: drop-shadow(0px 0px 10px #00000075);
+        position: absolute;
+        left: -100px;
+        top: -150px; 
+        z-index: -1;
+        transition: all .5s;
+        border-style: none;
+    }
+    .logo:hover {
+        width: 400px;
+        height: 400px;
+        background: url(/GlowLogoHover.png);
+    }
+}
+main {
+    /*
+    Смещение основной части на 100 пикселей вверх.
+    */
+    margin-top: -100px;
+    .mountainsContainer {
+        margin-top: -800px;
+        min-height: 100vh  ;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
+    /*
+    Горы
+    */
+    .frontMountains {
+        width: 100%;
+        height: 600px;
+        position: absolute;
+        background: url(/frontMountains.png);
+        z-index: -2;
+        animation: frontMountainsAnimation 1s;
+        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.25));
+    }
+    .backMountains {
+        width: 100%;
+        height: 600px;
+        background: url(/backMountains.png);
+        position: absolute;
+        z-index: -4;
+        animation: backMountainsAnimation 1.5s;
+        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.25));
+    }
+    /*
+    /*
+    Свечение за окном 
+    */
+    .backGroundGlow {
+        width: 1030px;
+        height: 941px;
+        flex-shrink: 0;
+        border-radius: 1030px;
+        background: radial-gradient(48.1% 48.92% at 50% 48.72%, #93B785 0%, rgba(147, 183, 133, 0.00) 100%);
+        position: absolute;
+        z-index: -4;
+        margin: -200px auto;
+        opacity: 0;
+        animation: glowAnimation 1s forwards;
+        animation-delay: 1s;
+    }
+    /*
+    Окно по центру 
+    */
+    .TestWindow {
+        width: 800px;
+        height: 500px;
+        margin: 200px auto;
+        background: #015A71;
+        border-radius: 40px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.50);
+        opacity: 1;
+        animation: windowAnimation 1s;
+        align-items: center;
+    }
+    .quiz_box {
+        position: absolute;
+        width: 800px;
+        height: 500px;
+        background:#015A71 ;
+        border-radius: 40px;
+        transition: all 0.3s ease;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .activeQuiz {
+        opacity: 1;
+        z-index: 2;
+        pointer-events: all;
+    }
+    .quiz_box header {
+        position: relative;
+        z-index: 2;
+        height: 100px;
+        padding: 0 30px;
+        position: relative;
+        padding: 0, 30px;
+        display: flex;
+        align-items: center;
+        border-radius: 40px 40px 0 0;
+        justify-content: space-between;
+        box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    }
+    .quiz_box header .title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .quiz_box header .timer {
+        color: #ffffff;
+        background: #027f9e;
+        border: 1px solid #01627a;
+        height: 45px;
+        padding: 0 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 145px;
+    }
+    }
+    .quiz_box header .timer .timer_sec {
+        font-size: 18px;
+        font-weight: 500;
+        height: 30px;
+        width: 45px;
+        color: #fff;
+        border-radius: 5px;
+        line-height: 30px;
+        text-align: center;
+        background: #343a40;
+        border: 1px solid #343a40;
+        user-select: none;
+    }
+    .quiz_box section {
+        padding: 25px 30px 20px 30px;
+        width: 50%;
+        margin: auto;
+    } 
+    .que_text {
+        margin: auto;
+        font-size: 20px;
+        font-weight: 600;
+        width: 500px;
+        height: 50px;
+    }
+    .option_list {
+        padding: 30px 0;
+        display: block;
+    }
+    .option {
+        height: 40px;;
+        background: linear-gradient(180deg, #ADB17E 0%, #7AA06C 100%);
+        border-radius: 5px;
+        padding: 8px 15px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 17px;
+    }
+    .option:last-child {
+        margin-bottom: 0px;
+    }
+    .option:hover {
+        filter: drop-shadow(0px 0px 50px rgba(198, 204, 140, 0.60));
+        color: black;
+    }
+    .selected{
+        filter: drop-shadow(0px 0px 50px rgba(198, 204, 140, 0.60));
+        color: black;
+    }
+    .correct {
+        color: black;
+        background: linear-gradient(180deg, #389935 0%, #3feb00 100%);
+    }
+    .incorrect{
+        color: black;
+        background: linear-gradient(180deg, #a32c2c 0%, rgb(235, 74, 0) 100%);
+    }
+    .quiz_box footer {
+        padding: 0 60px;
+        height: 200px;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .total_que span {
+        display: flex;
+        user-select: none;
+    }
+    .total_que span p {
+        font-weight: 500;
+        padding: 0 5px;
+    }
+    .total_que span p:first-child {
+        padding-left: 0;
+    }
+    .next_btn, .next_btn_shadow, .nxt.btn {
+        width: 200px;
+        height: 70px;
+        border-radius: 30px;
+        border-style: none;
+    }
+    .next_btn {
+        background: linear-gradient(180deg, #015A71 0%, #112C56 100%);
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.50);
+        color: white;
+        padding: 0;
+        z-index: 2;
+        font-size: 20px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-weight: bold;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        position:relative;
+        cursor: pointer;
+        border-radius: 30px;
+        bottom: 80px
+    }
+    .next_btn_shadow {
+        position: absolute;
+        background: linear-gradient(180deg, #05495A 0%, #10264d 100%);
+        margin-top: 10px;
+        bottom: 10px;
+        
+    }
+    .next_btn:hover {
+        box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.50);
+        color: black;
+    }
+    .next_btn:active {
+        margin-top: 21px;
+    }
+    .result_box {
+        width: 800px;
+        height: 500px;
+        padding: 0 30px;
+        position: absolute;
+        background:#015A71 ;
+        border-radius: 40px;
+        transition: all 0.3s ease;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .activeResult{
+        opacity: 1;
+        pointer-events: all;
+        z-index: 2;
+    }
+    .result_box .icon{
+        padding: 20px;
+        font-size: 250px;
+        color: #93B785;;
+    }
+    .complete_text {
+        position: relative;
+        bottom: 30px;
+        font-size: 40px;
+        font-weight: 500;
+
+    }
+    .score_text span {
+        position: relative;
+        bottom: 40px;
+        display: flex;
+        font-size: 30px;
+    }
+    .score_text span p{
+        font-weight: 600;
+        padding: 0 8px;
+    }
+    .button_quit {
+        bottom: 100px;
+    }
+    .button_quit, .quit_btn_shadow, .quit {
+        width: 200px;
+        height: 60px;
+        border-radius: 30px;
+        border-style: none;
+    }
+    .quit {
+        z-index: 1;
+        background: linear-gradient(180deg, #C6CC8C 0%, #9DCC8B 100%);
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        filter: drop-shadow(0px 0px 30px rgba(198, 204, 140, 0.60));
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        bottom: 40px;
+    }
+    .quit_btn_shadow {
+        bottom: 30px;
+        z-index:1;
+        position: absolute;
+        background: linear-gradient(180deg, #ADB17E 0%, #7AA06C 100%);
+        margin-top: 10px;
+    }
+    .quit:hover { 
+        filter: drop-shadow(0px 0px 50px rgba(198, 204, 140, 0.60));
+        color: black;
+    }
+    .quit:active {
+        margin-top: 10px;
+    }

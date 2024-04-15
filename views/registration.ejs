@@ -17,21 +17,23 @@
         <h2 class="loginTitle">Зарегистрируйтесь, чтобы начать изучать языки.</h2>
         <div class="loginWindow">
                 <div class="backGroundGlow"></div>
+        <form action="/register" method="post">
             <p class="emailText">Email</p>
-                <input type="text" class="email" id="email">
+                <input type="text" class="email" id="email" name="email">
             <p class="nameText">Имя</p>
-                <input type="text" class="name" id="name">
+                <input type="text" class="name" id="name" name="name">
             <p class="passwordText">Пароль</p>
-                <input type="password" class="password" id="password">
+                <input type="password" class="password" id="password" name="password">
             <p class="passwordConfirmText">Повтор пароля</p>
                 <input type="password" class="passwordConfirm" id="passwordConfirm">
             <div class="buttonContainer">
                 <div class="loginContainer">
-                    <button class="login">Зарегистрироваться</button>
+                <button class="login" type="submit">Зарегистрироваться</button>
+        </form>
                     <div class="buttonShadowLogin"></div>
                 </div>
                 <div class="backContainer">
-                    <button class="back" onclick="back()">Уже есть аккаунт</button>
+                    <button class="back" onclick="back()" type="button">Уже есть аккаунт</button>
                     <script>
                         function back() {
                         window.location.href='/loginPage';
@@ -42,11 +44,7 @@
 
             </div>
         </div>
-    <div class="mountainsContainer">
-    <div class="backMountains"></div>
-        <div class="frontMountains">
-        </div>
-    </div>
+        <%- include('../views/partials/mountains'); %>
     </main>
 <%- include('../views/partials/footer'); %>
 </body>

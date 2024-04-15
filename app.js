@@ -1,8 +1,12 @@
 const express = require('express');
 const path = require('path');
-const ejs = require('ejs');
 const app = express();
 const mongoose = require('mongoose');
+const authRouter = require('./auth/authRouter')
+
+app.use(express.urlencoded({ extended: true }))
+
+app.use(authRouter);
 
 const start = async () => {
     try {
@@ -14,11 +18,15 @@ const start = async () => {
 }
 
 app.set('view engine', 'ejs')
+
 app.set('views', path.resolve(__dirname, 'views'))
 
 app.use(express.static(path.join(__dirname, 'styles')));
 
 app.use(express.static(path.join(__dirname, 'pictures')));
+
+app.use(express.static(path.join(__dirname, 'scripts')));
+
 
 app.get('/', (req, res) => {
     res.render('StartPage')
@@ -31,6 +39,15 @@ app.get('/registration', (req, res) => {
 })
 app.get('/loginPage', (req, res) => {
     res.render('loginPage')
+})
+app.get('/Test1', (req, res) => {
+    res.render('Test1')
+})
+app.get('/mainMenu', (req, res) => {
+    res.render('mainMenu')
+})
+app.get('/profilePage', (req, res) => {
+    res.render('profilePage')
 })
 
 start();

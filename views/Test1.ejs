@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Test1.css">
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="/Quiz.js"></script>
+    <title>GlowLang</title>
+</head>
+<body>
+    <%- include('../views/partials/header'); %>
+        <main>
+            <div class="TestWindow">
+                
+                <div class="quiz_box">
+                    </header>
+                    <section>
+                        <div class="que_text">
+                            <div></div>
+                        </div>
+                        <div class="option_list">
+                            <div class="option">
+                                <span></span>
+                            </div>
+                            <div class="option">
+                                <span></span>
+                            </div>
+                            <div class="option">
+                                <span></span>
+                            </div>
+                            <div class="option">
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                    </section>
+                    <footer>
+                        <div class="total_que">
+                            <span></span>
+                        </div>
+                        <div class="nxt_btn">
+                            <div class="next_btn_shadow"></div>
+                            <button class="next_btn">Следующий Вопрос</button>
+                        </div>
+                    </footer>
+                </div>
+                <div class="result_box">
+                    <div class="icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="complete_text">Вы прошли тест</div>
+                    <div class="score_text">
+                        <span></span>
+                    </div>
+                    <div class="button_quit">
+                        <div class="quit_btn_shadow"></div>
+                        <button class="quit" onclick="pass()">Завершить тест</button>
+                        <script>function pass() {
+                            window.location.href='/mainMenu'
+                        }
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <%- include('../views/partials/mountains'); %>
+        </main>   
+</body>
+</html>

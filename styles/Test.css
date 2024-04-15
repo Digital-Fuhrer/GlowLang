@@ -1,0 +1,227 @@
+body {
+    background: #05727B;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+/*
+Появление окна сверху вниз.
+*/
+@keyframes windowAnimation {
+    0% { transform: translateY(-50%)}
+    100% { transform: translateY(0%)}
+}
+/*
+Появление гор 
+*/
+@keyframes frontMountainsAnimation { 
+    0% { transform: translateY(50%)}
+    100% { transform: translateY(0%)}
+}
+@keyframes backMountainsAnimation {
+    0% { transform: translateY(50%)}
+    100% { transform: translateY(0%)}
+}
+/*
+Анимации лучей
+*/
+@keyframes beamsAnimation {
+    0% {opacity: 0;}
+    100% {opacity: .3;}
+}
+@keyframes firstBeamRotating {
+    0% { transform: rotate(-5deg); opacity: .3; }
+    50% { transform: rotate(-25deg); opacity: .2; }
+    100% { transform: rotate(-5deg); opacity: .3; }
+}
+@keyframes secondBeamRotating {
+    0% { transform: rotate(-45deg); opacity: .3; }
+    50% { transform: rotate(-65deg); opacity: .2; }
+    100% { transform: rotate(-45deg); opacity: .3; }
+}
+/*
+Появление свечения и двух кругов позади окна.
+*/
+@keyframes glowAnimation {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+header {
+    /*
+    Лого
+    */
+    .logo {    
+        width: 350px;
+        height: 350px;
+        background: url(/GlowLogo.png);
+        background-repeat: no-repeat;
+        filter: drop-shadow(0px 0px 10px #00000075);
+        position: absolute;
+        left: -100px;
+        top: -150px; 
+        z-index: -1;
+        transition: all .5s;
+        border-style: none;
+    }
+    .logo:hover {
+        width: 400px;
+        height: 400px;
+        background: url(/GlowLogoHover.png);
+    }
+}
+main {
+    /*
+    Смещение основной части на 100 пикселей вверх.
+    */
+    margin-top: -100px;
+    .mountainsContainer {
+        margin-top: -800px;
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
+    /*
+    Горы
+    */
+    .frontMountains {
+        width: 100%;
+        height: 600px;
+        position: absolute;
+        background: url(/frontMountains.png);
+        z-index: -2;
+        animation: frontMountainsAnimation 1s;
+        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.25));
+    }
+    .backMountains {
+        width: 100%;
+        height: 600px;
+        background: url(/backMountains.png);
+        position: absolute;
+        z-index: -4;
+        animation: backMountainsAnimation 1.5s;
+        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.25));
+    }
+    /*
+    Свечение за окном и круги 
+    */
+    .backGroundGlow {
+        width: 1030px;
+        height: 941px;
+        flex-shrink: 0;
+        border-radius: 1030px;
+        background: radial-gradient(48.1% 48.92% at 50% 48.72%, #93B785 0%, rgba(147, 183, 133, 0.00) 100%);
+        position: absolute;
+        z-index: -4;
+        margin: -200px auto;
+        opacity: 0;
+        animation: glowAnimation 1s forwards;
+        animation-delay: 1s;
+    }
+    }
+    /*
+    Окно по центру 
+    */
+    .TestWindow {
+        width: 800px;
+        height: 500px;
+        margin: 200px auto;
+        background: #015A71;
+        border-radius: 40px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.50);
+        opacity: 1;
+        animation: windowAnimation 1s;
+        
+    }
+    .questionsText {
+        text-align: center;
+        margin: auto;
+        font-size: 40px;
+        font-weight: bold;
+        padding-top: 100px;
+    }
+    .questionsText:hover {
+        filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.699));
+    }
+    /*
+    Контейнер с кнопками 
+    */
+    .buttonContainer {
+        margin-top: 50px;
+        display: flex;
+        width: 800px;
+        height: 200px;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .answer1, .buttonFirst, .buttonFirstShadow {
+        width: 200px;
+        height: 60px;
+        border-radius: 30px;
+        border-style: none;
+    }
+    .answer2, .buttonSecond, .buttonSecondShadow {
+        width: 200px;
+        height: 60px;
+        border-radius: 30px;
+        border-style: none;
+    }
+    .answer1 {
+        z-index: 1;
+        background: linear-gradient(180deg, #C6CC8C 0%, #9DCC8B 100%);
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        filter: drop-shadow(0px 0px 30px rgba(198, 204, 140, 0.60));
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        
+    }
+    .answer2 {
+        background: linear-gradient(180deg, #015A71 0%, #112C56 100%);
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.50);
+        color: white;
+        padding: 0;
+        z-index: 2;
+        font-size: 20px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-weight: bold;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        position:relative;
+        cursor: pointer;
+    }
+    .buttonFirstShadow {
+        position: absolute;
+        background: linear-gradient(180deg, #ADB17E 0%, #7AA06C 100%);
+        margin-top: 10px;
+    }
+    .buttonSecondShadow {
+        position: absolute;
+        background: linear-gradient(180deg, #05495A 0%, #10264d 100%);
+        margin-top: 10px;
+    }
+    .answer1:hover {
+        filter: drop-shadow(0px 0px 50px rgba(198, 204, 140, 0.60));
+        color: black;
+    }
+    .answer1:active {
+        margin-top: 10px; 
+    }
+    .answer2:hover {
+        box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.50);
+        color: black;
+    }
+    .answer2:active {
+        margin-top: 10px;
+    }
+    

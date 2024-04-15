@@ -1,3 +1,4 @@
+
  let visibleLocation = 'location1';
  let buttonActive = 1;
 
@@ -6,10 +7,10 @@
  const locations = document.querySelectorAll('.location');
 
     function updateMenuOnScroll() {
+
       const scrollTop = window.scrollY;
 
-      let visibleLocation;
-      
+
       locations.forEach(location => {
         const locationTop = location.offsetTop;
         const locationBottom = locationTop + location.clientHeight;
