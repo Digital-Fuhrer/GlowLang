@@ -3,10 +3,17 @@ const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
 const authRouter = require('./auth/authRouter')
+const session = require('express-session');
+const varMidWare = require('./auth/middleWare/middleWareAuth')
 
 app.use(express.urlencoded({ extended: true }))
-
+app.use(session({
+    secret: 'some secret value',
+    resave: false,
+    saveUninitialized: false
+}))
 app.use(authRouter);
+app.use(varMidWare);
 
 const start = async () => {
     try {
@@ -47,7 +54,10 @@ app.get('/mainMenu', (req, res) => {
     res.render('mainMenu')
 })
 app.get('/profilePage', (req, res) => {
-    res.render('profilePage')
+    res.render('profilePage', {
+        name: 0,
+    })
+    console.log(res.locals.isAuth)
 })
 
 start();

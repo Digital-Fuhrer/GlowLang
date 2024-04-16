@@ -9,12 +9,14 @@
     name: {
         type: String,
         required: true,
-        unique: true
+        unique: false
     },
     password: {
         type: String,
-        required: true,
-        unique: true
+        unique: false,
+        partialFilterExpression: {
+            'auctionId.0': { $exists: true }
+          }
     }
  })
 

@@ -372,10 +372,11 @@
             </div>
             <%- include('../views/partials/footer'); %>
         </main>
+        <form action="/logout" method="post">
         <nav>
             <ul>
                 <li>
-                    <button class="profile" onclick="profile()">Профиль</button>
+                    <button class="profile" onclick="profile()" type="button">Профиль</button>
                     <div class="shadow"></div>
                     <script>
                         function profile(){
@@ -384,11 +385,13 @@
                     </script>
                 </li>
                 <li>
-                    <button class="exit">Выход</button>
-                    <div class="shadow"></div>
+                        <button class="exit" type="submit">Выход</button>
+                        <div class="shadow"></div>
+                    </form>
                 </li>
             </ul>
         </nav>
+    </form>
     </div>
 </body>
 </html>
