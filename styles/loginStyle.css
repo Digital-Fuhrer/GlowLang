@@ -37,6 +37,10 @@ body {
         0% { opacity: 0; }
         100% { opacity: 1; }
     }
+    @keyframes errorAnimation {
+        0% { color: red; }
+        100% { color: white; }
+    }
 
 header {
     /*
@@ -81,7 +85,11 @@ main {
         margin: 200px auto 40px auto;
         text-align: center;
         animation: windowAnimation 2s;
+
     } 
+    .loginTitleError {
+        animation: errorAnimation 2s;
+    }
     /*
     Окно с логином.
     */

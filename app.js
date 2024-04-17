@@ -4,20 +4,38 @@ const app = express();
 const mongoose = require('mongoose');
 const authRouter = require('./auth/authRouter')
 const session = require('express-session');
-const varMidWare = require('./auth/middleWare/middleWareAuth')
+const MongoStore = require('connect-mongodb-session')(session );
+
+MONGODB_URI = 'mongodb+srv://Feku:H7m-ks2-Zg3-Pza@glowlangcluster.oqf3kbr.mongodb.net/';
 
 app.use(express.urlencoded({ extended: true }))
+
+const store = new MongoStore({
+    collection: 'sessions',
+    uri: MONGODB_URI
+})
+
 app.use(session({
     secret: 'some secret value',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store
 }))
 app.use(authRouter);
-app.use(varMidWare);
+app.use( async function (req, res, next) {
+    res.locals.isAuth = req.session.isAuthenticated
+    res.locals.user = req.session.user
+    loginText = res.locals.loginText;
+
+    authUser = res.locals.user;
+    userStatus = res.locals.isAuth;
+
+    next()
+});
 
 const start = async () => {
     try {
-        await mongoose.connect(`mongodb+srv://Feku:H7m-ks2-Zg3-Pza@glowlangcluster.oqf3kbr.mongodb.net/`)
+        await mongoose.connect(MONGODB_URI)
         app.listen(3000)
     } catch (e) {
         console.log(e);
@@ -36,16 +54,40 @@ app.use(express.static(path.join(__dirname, 'scripts')));
 
 
 app.get('/', (req, res) => {
+    if (userStatus == false || userStatus == undefined) 
+    {
     res.render('StartPage')
+    } else if (userStatus == true)
+    {
+    res.render('mainMenu')
+    }
 })
 app.get('/StartPage', (req, res) => {
     res.render('StartPage')
 })
 app.get('/registration', (req, res) => {
-    res.render('registration')
+    if (userStatus == false || userStatus == undefined) 
+    {
+    res.render('registration', {
+        registText: 'Зарегистрируйтесь, чтобы начать изучать языки.',
+        errorColor: null
+    })
+    } else if (userStatus == true) 
+    {
+    res.render('mainMenu')
+    }
 })
 app.get('/loginPage', (req, res) => {
-    res.render('loginPage')
+    if (userStatus == false || userStatus == undefined) 
+    {
+    res.render('loginPage', {
+        loginText: 'Войдите, чтобы начать изучать языки.',
+        errorColor: null
+    })
+    } else if (userStatus == true) 
+    {
+    res.render('mainMenu')
+    }
 })
 app.get('/Test1', (req, res) => {
     res.render('Test1')
@@ -55,9 +97,8 @@ app.get('/mainMenu', (req, res) => {
 })
 app.get('/profilePage', (req, res) => {
     res.render('profilePage', {
-        name: 0,
+        name: authUser.name,
     })
-    console.log(res.locals.isAuth)
 })
 
 start();

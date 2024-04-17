@@ -14,7 +14,7 @@
 <body>
 <%- include('../views/partials/header'); %>
     <main>
-        <h2 class="loginTitle">Войдите, чтобы начать изучать языки.</h2>
+        <h2 class="loginTitle <%= errorColor %>"><%= loginText %></h2>
         <div class="loginWindow">
             <div class="backGroundGlow"></div>
         <form action="/login" method="post">

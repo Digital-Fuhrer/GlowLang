@@ -20,37 +20,47 @@ router.post('/register', [
     check( 'email', 'Поле email не может быть пустым.').notEmpty(),
     check( 'email', 'Введите корректный Email.').isEmail(),
     check( 'password', 'Пароль не может быть пустым.').notEmpty(),
-    check( 'password', 'Пароль должен быть больше 4 и меньше 12 символов.').isLength({min:4, max: 12}),
+    check( 'password', 'Пароль должен быть больше 4 символов.').isLength({min:4, max: 50}),
     check( 'passwordConfirm', 'Подтвердите пароль.').notEmpty(),
 ], async (req, res) => {
 
     try {
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return console.log(errors)
-        }
+            return res.render('registration' , {
+                registText: errors.array()[0].msg,
+                errorColor: 'loginTitleError'
+            })
 
-        const { email ,name, password, passwordConfirm} = req.body;
+        } else {
 
-        const candidate = await User.findOne({email})
+                const { email ,name, password, passwordConfirm} = req.body;
 
-        if (candidate) {
-            return console.log('User уже есть')
-        } 
-        if (password !== passwordConfirm) {
-            return console.log('Пароли не совпадают')
-        }
+                const candidate = await User.findOne({email})
 
-    const user = new User({
-        email: email,
-        name: name,
-        password: password
-    })
+                if (candidate) {
+                    return res.render('registration' , {
+                        registText: "Такой пользователь уже зарегистрирован.",
+                        errorColor: 'loginTitleError'
+                    })
+                } 
+                if (password !== passwordConfirm) {
+                    return res.render('registration' , {
+                        registText: "Пароли не совпадают.",
+                        errorColor: 'loginTitleError'
+                    })
+                }
 
-    await user.save()
-    console.log('Пользователь зарегистрирован')
-    res.render('loginPage')
-        
+            const user = new User({
+                email: email,
+                name: name,
+                password: password
+            })
+
+            await user.save()
+            console.log('Пользователь зарегистрирован')
+            res.redirect('/loginPage')
+    }   
    } catch (e) {
     console.log(e)
    }
@@ -61,14 +71,17 @@ router.post('/login', [
     check( 'email', 'Поле email не может быть пустым.').notEmpty(),
     check( 'email', 'Введите корректный Email.').isEmail(),
     check( 'password', 'Пароль не может быть пустым.').notEmpty(),
-    check( 'password', 'Пароль должен быть больше 4 и меньше 12 символов.').isLength({min:4, max: 12}),
 
 ], async (req, res) => {
 
     try {
+
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return console.log(errors)
+            return res.render('loginPage' , {
+                loginText: errors.array()[0].msg,
+                errorColor: 'loginTitleError'
+            })
         }
 
         const { email, password, name} = req.body;
@@ -76,10 +89,16 @@ router.post('/login', [
         const registeredUser = await User.findOne({email})
 
         if (!registeredUser) {
-            return console.log('Пользователя с таким Email нет')
+            return res.render('loginPage' , {
+                loginText: 'Пользователя с таким Email нет.',
+                errorColor: 'loginTitleError'
+            })
         } 
         if (registeredUser.password !== password) {
-            return console.log('Пароль неверный.')
+            return res.render('loginPage' , {
+                loginText: 'Неверный пароль.',
+                errorColor: 'loginTitleError'
+            })
         }
     console.log('Вы успешно вошли.')
 
@@ -98,6 +117,7 @@ router.post('/login', [
 })
 
 router.post('/logout', (req, res) => {
+    req.session.isAuthenticated = false;
     req.session.destroy(() => {
         res.render('StartPage')
     })

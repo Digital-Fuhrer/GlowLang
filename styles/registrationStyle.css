@@ -37,7 +37,10 @@ body {
         0% { opacity: 0; }
         100% { opacity: 1; }
     }
-
+    @keyframes errorAnimation {
+        0% { color: red; }
+        100% { color: white; }
+    }
 header {
     /*
     Лого
@@ -179,6 +182,9 @@ margin-top: -100px;
         text-align: center;
         animation: windowAnimation 2s;
     } 
+    .loginTitleError {
+        animation: errorAnimation 2s;
+    }
     /*
     Окно с регистрацией.
     */
