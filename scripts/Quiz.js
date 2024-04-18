@@ -169,7 +169,8 @@ let questions = [
         ]
     }
 ]
-window.onload = function(){    
+window.onload = function(){ 
+    var selectedLevel = "";   
     let questionCounter = 0; // Счетчик вопросов
     let correctAnswers = 0; // Счетчик правильных ответов
     const startBtn = document.querySelector(".str_btn");
@@ -252,6 +253,15 @@ window.onload = function(){
       resultBox.classList.add("activeResult");
     
       const scoreText = resultBox.querySelector(".score_text span");
-      scoreText.textContent = `Вы ответили правильно на ${correctAnswers} из ${questions.length} вопросов.`;
+      if (correctAnswers <= 5 ) {
+        selectedLevel = "Низкий";
+      } else if (correctAnswers <= 9 ){
+        selectedLevel = "Средний";
+      } else if (correctAnswers <= 15){
+        selectedLevel = "Высокий";
+      }
+      scoreText.textContent = `Вы ответили правильно на ${correctAnswers} из ${questions.length} вопросов. \nВаш уровень знаний ${selectedLevel}`;
+      scoreText.style.whiteSpace = 'pre-line';
+      console.log(selectedLevel);
     }
 }

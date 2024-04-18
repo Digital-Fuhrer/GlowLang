@@ -1,0 +1,262 @@
+body {
+    background: #05727B;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+@keyframes windowAnimation {
+    0% { transform: translateY(-50%)}
+    100% { transform: translateY(0%)}
+}
+/*
+Появление гор 
+*/
+@keyframes frontMountainsAnimation { 
+    0% { transform: translateY(50%)}
+    100% { transform: translateY(0%)}
+}
+@keyframes backMountainsAnimation {
+    0% { transform: translateY(50%)}
+    100% { transform: translateY(0%)}
+}
+header {
+    /*
+    Лого
+    */
+    .logo {    
+        width: 350px;
+        height: 350px;
+        background: url(/GlowLogo.png);
+        background-repeat: no-repeat;
+        filter: drop-shadow(0px 0px 10px #00000075);
+        position: absolute;
+        left: -100px;
+        top: -150px; 
+        z-index: -1;
+        transition: all .5s;
+        border-style: none;
+    }
+    .logo:hover {
+        width: 400px;
+        height: 400px;
+        background: url(/GlowLogoHover.png);
+    }
+}
+main {
+    margin-top: -100px;
+    .mountainsContainer {
+        margin-top: -1025px;
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
+    /*
+    Горы
+    */
+    .frontMountains {
+        width: 100%;
+        height: 600px;
+        position: absolute;
+        background: url(/frontMountains.png);
+        z-index: -2;
+        animation: frontMountainsAnimation 1s;
+        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.25));
+    }
+    .backMountains {
+        width: 100%;
+        height: 600px;
+        background: url(/backMountains.png);
+        position: absolute;
+        z-index: -4;
+        animation: backMountainsAnimation 1.5s;
+        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.25));
+    }
+    /* Свечение за окном */
+    .backGroundGlow {
+        width: 1030px;
+        height: 941px;
+        flex-shrink: 0;
+        border-radius: 1030px;
+        background: radial-gradient(48.1% 48.92% at 50% 48.72%, #93B785 0%, rgba(147, 183, 133, 0.00) 100%);
+        position: absolute;
+        z-index: -4;
+        margin: -200px auto;
+        opacity: 0;
+        animation: glowAnimation 1s forwards;
+        animation-delay: 1s;
+    }
+    .ChoiceText {
+        width: 400px;
+        height: 80px;
+        text-align: center;
+        margin: 0 auto;
+        font-size: 30px;
+        font-weight: bold;
+        position: relative;;
+        top: -100px;
+    }
+    .ChoiceText:hover{
+        filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.699));
+    }
+    /* Окно выбора */
+    .ChoiceWindow {
+        width: 400px;
+        height: 334px;
+        margin: 400px auto;
+        border-radius: 40px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.50);
+        opacity: 1;
+        animation: windowAnimation 1s;
+        align-items: center;
+        background: linear-gradient(180deg, rgba(233, 238, 189, 0.80) 0%, rgba(157, 204, 139, 0.76) 100%);
+        position: relative;
+    }
+    .difWindow {
+        left: 20px;
+        margin-top: -60px;
+        width: 380px;
+        height: 250px;
+        align-items: center;
+        position: relative;
+    }
+    .firstLev .FirstLev {
+        width: 360px;
+        height: 65px;
+    }
+    }
+    .FirstLev {
+        background: linear-gradient(180deg, rgba(233, 238, 189, 0.8) 0%, rgba(157, 204, 139, 0.76) 100%);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-style: none;
+        border-radius: 20px;
+    }
+    .activef {
+        background: linear-gradient(180deg, rgba(233, 238, 189, 0.8) 0%, rgba(136, 230, 99, 0.76) 100%); ;
+    }
+    .firstEl {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        display: inline;
+        background: linear-gradient(180deg, #87F15D 0%, rgba(120, 127, 72, 0.8) 139.5%);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        border-radius: 50%;
+        right: 30px;
+        top:17px
+    }
+    .secondLev .SecondLev {
+        width: 360px;
+        height: 65px;
+        margin-top: 10px;
+    }
+    .SecondLev {
+        background: linear-gradient(180deg, rgba(233, 238, 189, 0.8) 0%, rgba(157, 204, 139, 0.76) 100%);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-style: none;
+        border-radius: 20px;
+    }
+    .actives {
+        background: linear-gradient(180deg, rgba(157, 204, 139, 0.76) 0%, rgba(242, 255, 113, 0.8) 100%);
+    }
+    .secondEl {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        display: inline;
+        background: linear-gradient(180deg, #E7FF55 0%, rgba(198, 204, 140, 0.8) 142.5%);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        border-radius: 50%;
+        right: 30px;
+        margin-top: 27px;
+    }
+    .thirdLev .ThirdLev {
+        width: 360px;
+        height: 65px;
+        margin-top: 10px;
+    }
+    .ThirdLev {
+        background: linear-gradient(180deg, rgba(233, 238, 189, 0.8) 0%, rgba(157, 204, 139, 0.76) 100%);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-style: none;
+        border-radius: 20px;
+    }
+    .activet {
+        background: linear-gradient(180deg, rgba(157, 204, 139, 0.76) 0%, #F16565 100%);
+    }
+    .thirdEl {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        display: inline;
+        background: linear-gradient(180deg, #F16565 0%, rgba(255, 150, 150, 0.8) 100%);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        border-radius: 50%;
+        right: 30px;
+        margin-top: 27px;
+    }
+    .buttonContainer {
+        width: 360px;
+        height: 45px;
+        margin-left: 30px;
+    }
+    .nextBtn {
+        height: 45px;
+        width: 150px;
+        display: inline;
+        margin-left: 30px;
+    }
+    .backBtn {
+        height: 45px;
+        width: 150px;
+        display: inline;
+    }
+    .next {
+        height: 45px;
+        width: 150px;
+        background: linear-gradient(180deg, #D8DCB0 0%, #AFB7AC 100%);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        border-style: none;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        pointer-events: none;
+    }
+    .activen {
+        background: linear-gradient(180deg, #C6CC8C 0%, #9DCC8B 100%);
+        pointer-events: all;
+    }
+    .back {
+        height: 45px;
+        width: 150px;
+        background: linear-gradient(180deg, #C6CC8C 0%, #9DCC8B 100%);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        border-style: none;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    }
