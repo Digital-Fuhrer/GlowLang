@@ -169,7 +169,8 @@ let questions = [
         ]
     }
 ]
-window.onload = function(){    
+window.onload = function(){ 
+    var selectedLevel = "";   
     let questionCounter = 0; // Счетчик вопросов
     let correctAnswers = 0; // Счетчик правильных ответов
     const startBtn = document.querySelector(".str_btn");
@@ -250,10 +251,11 @@ window.onload = function(){
       quizBox.classList.remove("activeQuiz");
       const resultBox = document.querySelector(".result_box");
       resultBox.classList.add("activeResult");
-    
+
       const scoreText = resultBox.querySelector(".score_text input");
 
       scoreText.textContent = `Вы ответили правильно на ${correctAnswers} из ${questions.length} вопросов.`;
       scoreText.value = correctAnswers;
 }
+
 }

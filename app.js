@@ -91,6 +91,12 @@ app.get('/loginPage', (req, res) => {
     res.render('mainMenu')
     }
 })
+app.get('/Test', (req, res) => {
+    res.render('Test')
+})
+app.get('/choice', (req, res) => {
+    res.render('choice')
+})
 app.get('/Test1', (req, res) => {
     res.render('Test1')
 })

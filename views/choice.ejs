@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/choice.css">
+    <link rel="stylesheet" href="/reset.css">
+    <script src="/choiceLev.js"></script>
+    <title>GlowLang</title>
+</head>
+<body>
+    <%- include('../views/partials/header'); %>
+    <main>
+        <div class="ChoiceWindow">
+            <h2 class="ChoiceText"> Выберите уровень <br> ваших знаний </h2>
+            <div class="difWindow">
+                <div class="firstLev">
+                    <button class="FirstLev" id="FirstLev">Низкий</button>
+                    <div class="firstEl"></div>
+                </div>
+                <div class="secondLev">
+                    <button class="SecondLev" id="SecondLev">Средний</button>
+                    <div class="secondEl"></div>
+                </div>
+                <div class="thirdLev">
+                    <button class="ThirdLev" id="ThirdLev">Высокий</button>
+                    <div class="thirdEl"></div>
+                </div>
+            </div>
+            <div class="buttonContainer">
+                <div class="backBtn">
+                    <button class="back" id="back">
+                        Назад
+                    </button>
+                </div>
+                <div class="nextBtn">
+                    <button class="next" id="next" onclick="pass()">
+                        Далее
+                    </button>
+                    <script>function pass() {
+                        window.location.href='/mainMenu'
+                    }
+                    </script>
+                </div>
+            </div>
+        </div>
+        <%- include('../views/partials/mountains'); %>
+    </main>
+</body>
+</html>
