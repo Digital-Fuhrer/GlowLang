@@ -17,6 +17,18 @@
         partialFilterExpression: {
             'auctionId.0': { $exists: true }
           }
+    },
+    difficult: {
+        type: String,
+        default: false
+    },
+    stars: {
+        type: Number,
+        default: 0
+    },
+    level: {
+        type: Number,
+        default: 1
     }
  })
 

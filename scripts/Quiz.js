@@ -251,7 +251,9 @@ window.onload = function(){
       const resultBox = document.querySelector(".result_box");
       resultBox.classList.add("activeResult");
     
-      const scoreText = resultBox.querySelector(".score_text span");
+      const scoreText = resultBox.querySelector(".score_text input");
+
       scoreText.textContent = `Вы ответили правильно на ${correctAnswers} из ${questions.length} вопросов.`;
-    }
+      scoreText.value = correctAnswers;
+}
 }

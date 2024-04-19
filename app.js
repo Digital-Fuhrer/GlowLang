@@ -7,6 +7,8 @@ const session = require('express-session');
 const MongoStore = require('connect-mongodb-session')(session );
 
 MONGODB_URI = 'mongodb+srv://Feku:H7m-ks2-Zg3-Pza@glowlangcluster.oqf3kbr.mongodb.net/';
+const db = mongoose.connection;
+const collection = db.collection("users")
 
 app.use(express.urlencoded({ extended: true }))
 
