@@ -27,8 +27,6 @@ app.use( async function (req, res, next) {
     res.locals.isAuth = req.session.isAuthenticated
     res.locals.user = req.session.user
 
-    console.log(req.session.user)
-
     loginText = res.locals.loginText;
     authUser = res.locals.user;
     userStatus = res.locals.isAuth;
