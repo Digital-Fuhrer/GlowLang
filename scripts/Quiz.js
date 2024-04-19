@@ -252,10 +252,27 @@ window.onload = function(){
       const resultBox = document.querySelector(".result_box");
       resultBox.classList.add("activeResult");
 
-      const scoreText = resultBox.querySelector(".score_text input");
+      const scoreText = resultBox.querySelector(".score_text span");
 
       scoreText.textContent = `Вы ответили правильно на ${correctAnswers} из ${questions.length} вопросов.`;
-      scoreText.value = correctAnswers;
 }
+
+document.getElementById('quit').addEventListener('click', function() {
+    var resultText = selectedLevel; 
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/testResult');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                console.log('Text sent successfully');
+            } else {
+                console.error('Failed to send text');
+            }
+        }
+    };
+    xhr.send('result=' + encodeURIComponent(resultText));
+});
 
 }

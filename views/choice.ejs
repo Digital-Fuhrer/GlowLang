@@ -32,17 +32,23 @@
             </div>
             <div class="buttonContainer">
                 <div class="backBtn">
-                    <button class="back" id="back">
+                    <button class="back" id="back" onclick="back()">
                         Назад
                     </button>
+                    <script>
+                        function back(){
+                        window.location.href='/Test'
+                        }
+                    </script>
                 </div>
                 <div class="nextBtn">
-                    <button class="next" id="next" onclick="pass()">
+                    <button class="next" id="next" name="choice" type="submit" onclick="redirect()">
                         Далее
                     </button>
-                    <script>function pass() {
+                    <script>
+                        function redirect(){
                         window.location.href='/mainMenu'
-                    }
+                        }
                     </script>
                 </div>
             </div>

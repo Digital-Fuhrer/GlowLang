@@ -7,8 +7,6 @@ const session = require('express-session');
 const MongoStore = require('connect-mongodb-session')(session );
 
 MONGODB_URI = 'mongodb+srv://Feku:H7m-ks2-Zg3-Pza@glowlangcluster.oqf3kbr.mongodb.net/';
-const db = mongoose.connection;
-const collection = db.collection("users")
 
 app.use(express.urlencoded({ extended: true }))
 
@@ -104,8 +102,13 @@ app.get('/mainMenu', (req, res) => {
     res.render('mainMenu')
 })
 app.get('/profilePage', (req, res) => {
+    if (authUser.difficult == 'Низкий') icon = 'low'
+    if (authUser.difficult == 'Средний') icon = 'mid' 
+    if (authUser.difficult == 'Высокий') icon = 'hard' 
     res.render('profilePage', {
         name: authUser.name,
+        diff: authUser.difficult,
+        icon: icon
     })
 })
 

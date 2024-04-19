@@ -131,7 +131,6 @@ router.post('/logout', (req, res) => {
 })
 
 router.post('/testResult', urlencodedParser , async (req, res) => {
-    console.log('Запущен')
     const resultTest = req.body.result;
     let diff;
     if (resultTest <= 5 ) 
@@ -148,6 +147,15 @@ router.post('/testResult', urlencodedParser , async (req, res) => {
     await User.findOneAndUpdate({ email: regUser.email }, { $set: {difficult: diff}}).then(() => {
         console.log(`Ваш уровень знания: ${diff}`)
         res.redirect('mainMenu')
+        }
+    )
+})
+
+router.post('/choice', urlencodedParser , async (req, res) => {
+    const resultChoice = req.body.choice
+    const regUser = req.session.user;
+    await User.findOneAndUpdate({ email: regUser.email }, { $set: {difficult: resultChoice}}).then(() => {
+        console.log(`Ваш уровень знания: ${resultChoice}`)
         }
     )
 })

@@ -288,7 +288,7 @@ main {
             align-items: center;
         }
 
-        .starContainer, .levelContainer {
+        .starContainer, .levelContainer, .diffContainer {
             margin-top: 20px;
             width: 360px;
             height: 65px;
@@ -300,9 +300,17 @@ main {
             border-radius: 20px;
         }
         .valueContainer {
+            margin-left: 0px;
             display: flex;
             width: 45px;
             align-items: center;
+        }
+        .diffContainer > .valueContainer {
+            margin-right: 40px;
+            width: 80px;
+        }
+        .diffIcon {
+            margin: 5px 0 0 0px;
         }
         .blockText, .value{
             font-size: 18px;
@@ -311,6 +319,10 @@ main {
         .value {
             width: 50px;
         }
+        .diffValue {
+            margin-right: 20px;
+            font-size: 16px;
+        }
         
         /*
         Кнопка войти.
@@ -318,7 +330,7 @@ main {
     .back {
         align-self: flex-start;
         margin-left: 20px;
-        margin-top: 100px;
+        margin-top: 20px;
         z-index: 3;
         background: linear-gradient(180deg, rgba(233, 238, 189, 0.80) 0%, rgba(157, 204, 139, 0.76) 100%);
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.50);

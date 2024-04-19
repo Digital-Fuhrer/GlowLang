@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
     firstButton.addEventListener("click", function() {
       toggleButton(firstButton);
+      
     });
   
     secondButton.addEventListener("click", function() {
@@ -69,4 +70,22 @@ document.addEventListener("DOMContentLoaded", function() {
         toggleButton(thirdButton);
       }
     });
+
+    document.getElementById('next').addEventListener('click', function() {
+      var choiceText = selectedLevel; 
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/choice');
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                  console.log('Text sent successfully');
+              } else {
+                  console.error('Failed to send text');
+              }
+          }
+      };
+      xhr.send('choice=' + encodeURIComponent(choiceText));
+  });
   });
