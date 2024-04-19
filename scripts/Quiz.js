@@ -251,17 +251,11 @@ window.onload = function(){
       quizBox.classList.remove("activeQuiz");
       const resultBox = document.querySelector(".result_box");
       resultBox.classList.add("activeResult");
-    
-      const scoreText = resultBox.querySelector(".score_text span");
-      if (correctAnswers <= 5 ) {
-        selectedLevel = "Низкий";
-      } else if (correctAnswers <= 9 ){
-        selectedLevel = "Средний";
-      } else if (correctAnswers <= 15){
-        selectedLevel = "Высокий";
-      }
-      scoreText.textContent = `Вы ответили правильно на ${correctAnswers} из ${questions.length} вопросов. \nВаш уровень знаний ${selectedLevel}`;
-      scoreText.style.whiteSpace = 'pre-line';
-      console.log(selectedLevel);
-    }
+
+      const scoreText = resultBox.querySelector(".score_text input");
+
+      scoreText.textContent = `Вы ответили правильно на ${correctAnswers} из ${questions.length} вопросов.`;
+      scoreText.value = correctAnswers;
+}
+
 }

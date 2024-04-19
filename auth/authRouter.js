@@ -4,14 +4,16 @@ const app = express();
 const Router = require('express');
 const router = new Router();
 const User = require('./models/user')
-const {check} = require('express-validator')
-const {validationResult} = require('express-validator')
+const {check, validationResult} = require('express-validator')
+const bodyParser = require('body-parser');
 
 app.set('views', path.resolve(__dirname, 'views'))
 
 app.use(express.static(path.join(__dirname, 'styles')));
 
 app.use(express.static(path.join(__dirname, 'pictures')));
+
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.post('/register', [
 
@@ -75,7 +77,6 @@ router.post('/login', [
 ], async (req, res) => {
 
     try {
-
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
             return res.render('loginPage' , {
@@ -104,11 +105,17 @@ router.post('/login', [
 
         req.session.user = registeredUser
         req.session.isAuthenticated = true;
+        req.session.difficult = registeredUser.difficult;
+        
         req.session.save(err => {
             if (err) {
                 throw err
-            }
+            } else 
+            if (req.session.difficult === 'false') {
             res.render('Test')
+            } else {
+                res.render('mainMenu');
+            }
         })
         
    } catch (e) {
@@ -121,6 +128,28 @@ router.post('/logout', (req, res) => {
     req.session.destroy(() => {
         res.render('StartPage')
     })
+})
+
+router.post('/testResult', urlencodedParser , async (req, res) => {
+    console.log('Запущен')
+    const resultTest = req.body.result;
+    let diff;
+    if (resultTest <= 5 ) 
+      {
+        diff = "Низкий";
+      } else if (resultTest <= 9 )
+      {
+        diff = "Средний";
+      } else if (resultTest <= 15)
+      {
+        diff = "Высокий";
+      }
+    const regUser = req.session.user;
+    await User.findOneAndUpdate({ email: regUser.email }, { $set: {difficult: diff}}).then(() => {
+        console.log(`Ваш уровень знания: ${diff}`)
+        res.redirect('mainMenu')
+        }
+    )
 })
 
 module.exports = router;
