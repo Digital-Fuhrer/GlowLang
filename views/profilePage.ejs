@@ -47,27 +47,7 @@
             </div>
             <div class="mainInfoContainer">
                 <div class="mainInfoWindow">
-                    <div class="starContainer block">
-                        <h2 class="stars blockText">Заработано звезд:</h2>
-                        <div class="valueContainer">
-                            <h2 class="starsValue value">0</h2>
-                            <img src="/starIcon.png" alt="" class="starsIcon">
-                        </div>
-                    </div>
-                    <div class="levelContainer block">
-                        <h2 class="level blockText">Уровень:</h2>
-                        <div class="valueContainer">
-                            <h2 class="levelValue value">0</h2>
-                            <img src="/levelIcon.png" alt="" class="levelIcon">
-                        </div>
-                    </div>
-                    <div class="diffContainer block">
-                        <h2 class="diff blockText">Уровень знаний:</h2>
-                        <div class="valueContainer">
-                            <h2 class="diffValue value"><%= diff %></h2>
-                            <img src="/<%= icon %>DiffIcon.png" alt="" class="diffIcon">
-                        </div>
-                    </div>
+                    <%- include('../views/partials/profileBlock'); %>
                         <button class="back" onclick="back()">Назад
                             <div class="buttonShadowBack"></div>
                         </button>

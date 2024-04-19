@@ -142,10 +142,10 @@ router.post('/testResult', urlencodedParser , async (req, res) => {
       } else if (resultTest <= 15)
       {
         diff = "Высокий";
-      }
+      } else diff = 'ошибка'
     const regUser = req.session.user;
     await User.findOneAndUpdate({ email: regUser.email }, { $set: {difficult: diff}}).then(() => {
-        console.log(`Ваш уровень знания: ${diff}`)
+        console.log(`Ваш уровень знания: ${diff}, правильных ответов - ${resultTest}.`)
         res.redirect('mainMenu')
         }
     )
@@ -154,10 +154,23 @@ router.post('/testResult', urlencodedParser , async (req, res) => {
 router.post('/choice', urlencodedParser , async (req, res) => {
     const resultChoice = req.body.choice
     const regUser = req.session.user;
-    await User.findOneAndUpdate({ email: regUser.email }, { $set: {difficult: resultChoice}}).then(() => {
+    await User.findOneAndUpdate({ email: regUser.email }, { $set: {difficult: resultChoice}}, {new: true}).then(async () => {
+        try {
         console.log(`Ваш уровень знания: ${resultChoice}`)
+        req.session.user = await User.findOne({ email: regUser.email })
+
+        res.locals.isAuth = req.session.isAuthenticated
+        req.session.user = await User.findOne({ email: regUser.email });
+        req.session.save()
+  
+        } catch (error) {
+            console.error('Error updating user data:', error);
+            res.status(500).send('Internal Server Error');
+        }
         }
     )
+
 })
+
 
 module.exports = router;

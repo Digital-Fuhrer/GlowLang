@@ -258,7 +258,6 @@ window.onload = function(){
 }
 
 document.getElementById('quit').addEventListener('click', function() {
-    var resultText = selectedLevel; 
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/testResult');
@@ -272,7 +271,7 @@ document.getElementById('quit').addEventListener('click', function() {
             }
         }
     };
-    xhr.send('result=' + encodeURIComponent(resultText));
+    xhr.send('result=' + encodeURIComponent(correctAnswers));
 });
 
 }
