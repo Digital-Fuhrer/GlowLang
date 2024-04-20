@@ -60,7 +60,9 @@ app.get('/', (req, res) => {
     res.render('StartPage')
     } else if (userStatus == true)
     {
-    res.render('mainMenu')
+        res.render('mainMenu', {
+            userLevels: req.session.user
+        });
     }
 })
 app.get('/StartPage', (req, res) => {
@@ -75,7 +77,9 @@ app.get('/registration', (req, res) => {
     })
     } else if (userStatus == true) 
     {
-    res.render('mainMenu')
+        res.render('mainMenu', {
+            userLevels: req.session.user
+        });
     }
 })
 app.get('/loginPage', (req, res) => {
@@ -87,7 +91,9 @@ app.get('/loginPage', (req, res) => {
     })
     } else if (userStatus == true) 
     {
-    res.render('mainMenu')
+        res.render('mainMenu', {
+            userLevels: req.session.user
+        });
     }
 })
 app.get('/Test', (req, res) => {
@@ -100,7 +106,9 @@ app.get('/Test1', (req, res) => {
     res.render('Test1')
 })
 app.get('/mainMenu', (req, res) => {
-    res.render('mainMenu')
+    res.render('mainMenu', {
+        userLevels: req.session.user
+    });
 })
 app.get('/profilePage', (req, res) => {
     if (authUser.difficult == 'Низкий') icon = 'low'

@@ -104,6 +104,7 @@ router.post('/login', [
     console.log('Вы успешно вошли.')
 
         req.session.user = registeredUser
+
         req.session.isAuthenticated = true;
         req.session.difficult = registeredUser.difficult;
         
@@ -114,7 +115,9 @@ router.post('/login', [
             if (req.session.difficult === 'false') {
             res.render('Test')
             } else {
-                res.render('mainMenu');
+                res.render('mainMenu', {
+                    userLevels: registeredUser
+                });
             }
         })
         
@@ -146,7 +149,9 @@ router.post('/testResult', urlencodedParser , async (req, res) => {
     const regUser = req.session.user;
     await User.findOneAndUpdate({ email: regUser.email }, { $set: {difficult: diff}}).then(() => {
         console.log(`Ваш уровень знания: ${diff}, правильных ответов - ${resultTest}.`)
-        res.redirect('mainMenu')
+        res.render('mainMenu', {
+            userLevels: req.session.user
+        });
         }
     )
 })
