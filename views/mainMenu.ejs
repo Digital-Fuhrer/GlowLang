@@ -16,15 +16,22 @@
         <div class="backGround">
             <div class="mainPopup">
                 <div class="titlePopup">
+                <div class="completedIcon"></div>
                     <p class="titleText">1 Уровень</p>
+                <div class="completedIcon completedIcon1"></div>
                 </div>
                 <p class="descriptionPopup">
                 </p>
                 <button class="buttonBack buttonPopup" onclick="backPopup()">
                     <p>Назад</p>
                 </button>
-                <button class="buttonStart buttonPopup">
+                <button class="buttonStart buttonPopup" onclick="toLevel()">
                     <p>Начать</p>
+                    <script>
+                        function toLevel() {
+                        window.location.href='/level';
+                        }
+                    </script>
                 </button>
             </div>
         </div>

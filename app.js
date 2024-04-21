@@ -123,6 +123,9 @@ app.get('/profilePage', (req, res) => {
         blockTitle: ['Заработано звезд:', 'Уровень:', 'Уровень знаний:']
     })
 })
+app.get('/level', (req, res) => {
+    res.render('level')
+})
 
 start();
 

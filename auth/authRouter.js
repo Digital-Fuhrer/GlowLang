@@ -147,8 +147,10 @@ router.post('/testResult', urlencodedParser , async (req, res) => {
         diff = "Высокий";
       } else diff = 'ошибка'
     const regUser = req.session.user;
-    await User.findOneAndUpdate({ email: regUser.email }, { $set: {difficult: diff}}).then(() => {
+    await User.findOneAndUpdate({ email: regUser.email }, { $set: {difficult: diff}}).then(async () => {
         console.log(`Ваш уровень знания: ${diff}, правильных ответов - ${resultTest}.`)
+        req.session.user = await User.findOne({ email: regUser.email });
+        req.session.save()
         res.render('mainMenu', {
             userLevels: req.session.user
         });
