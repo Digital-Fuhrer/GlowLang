@@ -8,6 +8,7 @@ const startBtn= document.querySelector('.buttonStart')
 const check = document.querySelector('.completedIcon')
 const check1 = document.querySelector('.completedIcon1')
 
+
     window.onkeydown = function( event ) {
         if ( event.keyCode == 27 ) {
 

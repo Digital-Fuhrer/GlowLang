@@ -16,8 +16,14 @@
     </header>
     <main>
         <nav class="menu">
+            <div class="repeatHelp help">
+                <p>Рестарт уровня</p>
+            </div>
             <div class="repeat">
                 <div class="repeatIcon"></div>
+            </div>
+            <div class="backHelp help">
+                <p>Вернуться в меню</p>
             </div>
             <div class="back" onclick="back()">
                 <div class="backIcon"></div>
@@ -29,12 +35,18 @@
             </div>
         </nav>
         <div class="iconContainer">
-            <div class="health">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="monsterHealthHelp help">
+                <p>Здоровье монстра:</p>
+            </div>
+            <div class="levelHelp help">
+                <p>За правильные ответы здоровье монстра будет уменьшаться, за неправильные - ваше.</p>
+            </div>
+            <div class="health-monster">
+                <div class="bar-monster"></div>
+                <div class="bar-monster"></div>
+                <div class="bar-monster"></div>
+                <div class="bar-monster"></div>
+                <div class="bar-monster"></div>
             </div>
             <div class="icon">
                 <div class="cloud1"></div>
@@ -48,28 +60,43 @@
         </div>
         <div class="taskContainer">
             <div class="task">
-                <div class="taskText">Тестовый текст для какого нибудь задания.</div>
+                <div class="taskText">Извините, произошла ошибка.</div>
+                <div class="errorText">Ответ неверный...</div>
+                <div class="rightText">Ответ верный!</div>
+            </div>
+            <div class="healthContainer">
+                <div class="healthHelp help">
+                    <p>Ваше здоровье:</p>
+                </div>
+                <div class="health-ally">
+                    <div class="bar-ally"></div>
+                    <div class="bar-ally"></div>
+                    <div class="bar-ally"></div>
+                    <div class="bar-ally"></div>
+                    <div class="bar-ally"></div>
+                </div>
+                <button class="questions"></button>
             </div>
             <div class="answers">
                 <div class="answer1 answer">
-                    <div class="textAnswer text">
-                        Ответ
-                    </div>
+                    <p class="textAnswer text">
+                        ...
+                    </p>
                 </div>
                 <div class="answer2 answer">
-                    <div class="textAnswer text">
-                        Ответ
-                    </div>
+                    <p class="textAnswer text">
+                        ...
+                    </p>
                 </div>
                 <div class="answer3 answer">
-                    <div class="textAnswer text">
-                        Ответ
-                    </div>
+                    <p class="textAnswer text">
+                        ...
+                    </p>
                 </div>
                 <div class="answer4 answer">
-                    <div class="textAnswer text">
-                        Ответ
-                    </div>
+                    <p class="textAnswer text">
+                        ...
+                    </p>
                 </div>
             </div>
         </div>

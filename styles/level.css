@@ -28,6 +28,15 @@ body {
     0% { transform: translateY(30px);}
     100% { transform: translateY(0px);}
 }
+@keyframes error {
+    0% { color: #F16565;}
+    100% { color: white;}
+}
+@keyframes right {
+    0% { color: #92D467;}
+    100% { color: white;}
+}
+
 header {
     /*
     Лого
@@ -55,6 +64,12 @@ header {
     }
 }
 main {
+
+
+    .help {
+       opacity: 0; 
+       transition: all 1s;
+    }
     .menu {
         width: 100px;
         height: 208px;
@@ -64,6 +79,19 @@ main {
         left: 60px;
         filter: drop-shadow(0px 0px 10px #00000075);
         animation: onsetBottom 2s, decor 2s, clouds 3s infinite ease-in-out;
+
+        .backHelp, .repeatHelp {
+            margin: 20px 0 0 110px;
+            position: absolute;
+            width: 120px;
+            height: 55px;
+            background: url(/rightHelp.png);
+        }
+        .backHelp > p , .repeatHelp > p{
+            margin: 8px 0 0 24px;
+            text-shadow: none;
+            font-size: 14px;
+        }
 
         .repeat {
             width: 80px;
@@ -103,6 +131,9 @@ main {
             height: 70px;
             transform: translateY(9px);
         }
+        .repeat:active ~ .backHelp {
+            transform: translateY(10px);
+        }
         .repeat:active ~ .back{
             transform: translateY(10px);
         }
@@ -113,7 +144,33 @@ main {
             transform: translateY(9px);
         }
     }
+    .monsterHealthHelp {
+        top: 20px;
+        margin-right: 400px;
+        position: absolute;
+        width: 120px;
+        height: 55px;
+        background: url(/help.png);
 
+    }
+    .levelHelp {
+        top: 140px;
+        margin-left: 600px;
+        position: absolute;
+        width: 265px;
+        height: 130px;
+        background: url(/levelHelp.png);
+
+    }
+    .levelHelp > p{
+        width: 200px;
+        margin: 12px 0 0 24px;
+        text-shadow: none;
+    }
+    .monsterHealthHelp > p {
+        margin: 8px 0 0 8px;
+        text-shadow: none;
+    }
     .iconContainer {
         display: flex;
         justify-content: center;
@@ -130,23 +187,24 @@ main {
             background: radial-gradient(48.1% 48.92% at 50% 48.72%, #93B785 0%, rgba(147, 183, 133, 0.00) 100%);
             position: absolute;
             z-index: -4;
-            margin-top: 300px;
+            margin-top: 120px;
             animation: decor 2s forwards;
         }
 
         .decor {
-            width: 312px;
-            height: 280px;
+            width: 240px;
+            height: 230px;
             position: absolute;
             background: url(/decor.png);
-            top: 110px;
+            top: 100px;
             margin-left: 20px;
             animation: decor 2s forwards, decorRotate 1s forwards;
             animation-delay: 2s;
             opacity: 0;
         }
 
-        .health {
+        .health-monster {
+            margin-top: -80px;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -156,19 +214,25 @@ main {
             background: url(/health.png);
             animation: onset 1.5s, decor 3s;
 
-            .bar {
+            .bar-monster {
                 width: 28px;
                 height: 29px;
                 background: url(/bar.png);
                 background-repeat: no-repeat;
             }
+
+            .bar-empty {
+                background: url(/emptyBar.png);
+                background-repeat: no-repeat;
+            }
         }
+
 
         .icon {
             display: flex;
             margin: 24px auto 0 auto;
-            width: 260px; 
-            height: 250px;
+            width: 200px; 
+            height: 200px;
             background: url(/iconBack.png);
             filter: drop-shadow(0px 0px 10px #00000075);
             animation: onset 1s, decor 2s;
@@ -198,9 +262,9 @@ main {
 
             .monsterImage {
                 margin: 30px auto 0 auto;
-                width: 160px;
-                height: 170px;
-                background: url(/monster.png);
+                width: 120px;
+                height: 125px;
+                background: none;
             }
         }
         
@@ -209,8 +273,8 @@ main {
         display: flex;
         flex-direction: column;
         margin:  0 auto 0 auto;
-        width: 800px;
-        height: 500px;
+        width: 850px;
+        height: 520px;
         background: linear-gradient( rgba(219, 238, 189, 0.8),  rgba(157, 204, 139, 0.8));
         border-radius: 40px;
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.50);
@@ -218,17 +282,82 @@ main {
 
         .task {
             margin: auto;
-            width: 750px;
-            height: 250px;
+            width: 800px;
+            height: 220px;
             background: linear-gradient( rgba(219, 238, 189, 0.8),  rgba(157, 204, 139, 0.8));
             border-radius: 40px;
             box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.50);
             animation: onsetBottom 2.5s;
 
             .taskText {
+                display: none;
+                animation: decor .5s;
                 font-size: 36px;
                 margin: 25px 30px;
             }
+            .errorText, .rightText {
+                display: none;
+                animation: decor 1s, error 1s;
+                font-size: 36px;
+                margin: 25px 30px;
+            }
+            .rightText {
+                animation: decor 1s, right 1s;
+            }
+        }
+        .healthHelp {
+
+            width: 120px;
+            height: 55px;
+            background: url(/help.png);
+
+        }
+        .healthHelp > p {
+            margin: 8px 0 0 8px;
+            text-shadow: none;
+        }
+        .healthContainer {
+            margin: auto;
+            width: 600px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .health-ally {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 200px;
+            height: 50px;
+            background: url(/health.png);
+            animation: onsetBottom 2.5s;
+
+            .bar-ally {
+                width: 28px;
+                height: 29px;
+                background: url(/bar-ally.png);
+                background-repeat: no-repeat;
+            }
+            .bar-empty {
+                background: url(/emptyBar.png);
+                background-repeat: no-repeat;
+            }
+        }
+        .questions {
+            border: none;
+            margin-right: 55px;
+            display: flex;
+            width: 50px;
+            height: 50px;
+            background: url(/questions.png);
+            background-repeat: no-repeat;
+            animation: onsetBottom 2.5s;
+        }
+        .questions:active {
+            transform: translateY(5px);
+            background: url(/questions_click.png);
+            background-repeat: no-repeat;
         }
         .answers {
             background-repeat: no-repeat;
@@ -237,7 +366,7 @@ main {
             justify-content: space-evenly;
             align-items: center;
             margin: auto;
-            width: 750px;
+            width: 800px;
             height: 150px;
             background: linear-gradient( rgba(219, 238, 189, 0.8),  rgba(157, 204, 139, 0.8));
             border-radius: 40px;
@@ -245,28 +374,41 @@ main {
             animation: onsetBottom 2.5s;
 
             .answer {
-                display: flex;
                 width: 160px;
                 height: 66px;
                 background: url(/answerButton.png);
 
                 .textAnswer {
-                    margin: 17px 48px;
+                    margin-top: 17px;
+                    text-align: center;
                     font-size: 20px;
                 }
+            }
+            .wrongAnswer {
+                background: url(/wrongAnswer.png);
+            }
+            .rightAnswer {
+                background: url(/rightAnswer.png);
             }
             .answer:active {
                 height: 58px;
                 background: url(/activeAnswerButton.png);
                 transform: translateY(5px);
             }
+            .wrongAnswer:active {
+                background: url(/wrongActive.png);
+            }
+            .rightAnswer:active {
+                background: url(/rightActive.png);
+            }
+        
         }
     }
     /*
     Контейнер для гор.
     */
     .mountainsContainer {
-        margin-top: -550px;
+        margin-top: -570px;
         width: 100%;
         display: flex;
         align-items: flex-end;

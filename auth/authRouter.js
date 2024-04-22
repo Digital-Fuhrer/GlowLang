@@ -161,7 +161,10 @@ router.post('/testResult', urlencodedParser , async (req, res) => {
 router.post('/choice', urlencodedParser , async (req, res) => {
     const resultChoice = req.body.choice
     const regUser = req.session.user;
-    await User.findOneAndUpdate({ email: regUser.email }, { $set: {difficult: resultChoice}}, {new: true}).then(async () => {
+    await User.findOneAndUpdate(
+        { email: regUser.email }, 
+        { $set: {difficult: resultChoice}}, 
+        {new: true}).then(async () => {
         try {
         console.log(`Ваш уровень знания: ${resultChoice}`)
         req.session.user = await User.findOne({ email: regUser.email })
@@ -177,6 +180,33 @@ router.post('/choice', urlencodedParser , async (req, res) => {
         }
     )
 
+})
+
+router.post('/levelResult', urlencodedParser, async (req, res) => {
+        let stars;
+        const incorrect = req.body.result;
+        regUser = req.session.user
+        console.log('Вы ответили правильно на все вопросы кроме ' + incorrect)
+
+        if (incorrect < 2) 
+        {
+            stars = 3;
+        } else if (incorrect >= 2) 
+        {
+            stars = 2;
+        } else if (incorrect >= 4) 
+        {
+            stars = 1;
+        } 
+
+        await User.findOneAndUpdate(
+            { email: regUser.email },
+            { $set: {level: regUser.level + 1, stars: regUser.stars + stars}}, 
+            {new: true}).then(async () => {
+                console.log('Уровень успешно добавлен')
+                req.session.user = await User.findOne({ email: regUser.email });
+                req.session.save()
+        })
 })
 
 
