@@ -8,11 +8,11 @@ body {
 }
 
 @keyframes opacity {
-    0% { opacity: 0; };
-    100% { opacity: 1; }
+    0% { opacity: 0}
+    100% { opacity: 1}
 }
 @keyframes top {
-    0% { transform: translateY(50px); };
+    0% { transform: translateY(50px); }
     100% { transform: translateY(0px); }
 }
 @keyframes scale {
@@ -160,8 +160,9 @@ main {
         height: 90px;
         background: url(/star.png);
         margin: auto;
-        animation: scale 1.5s, opacity .5s, rotate 1.5s, glow 2s;
+        opacity: 0;
         transition: all 1s;
+        animation: scale 1.5s , opacity 2s forwards, rotate 1.5s, glow 2s;
     }
     .star:hover {
         transform: scale(1.3);

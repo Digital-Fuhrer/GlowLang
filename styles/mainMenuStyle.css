@@ -311,11 +311,20 @@ main {
     right: 275px;
     z-index: 50;
     background: url(/popupLevelTip.png);
-
+    transition: all 1s;
+    opacity: 0;
 }
-
-.levelArrow:hover + .levelPointerTip {
-    background: black;
+.levelPointerTip p {
+    font-size: 16px;
+    margin: 10px 0 0 8px;
+}
+.levelPointerContainer {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    bottom: 50px;
+    right: 300px;
+    z-index: 55;
 }
 .toLevelPointer:active {
     width: 100px;

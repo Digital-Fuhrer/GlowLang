@@ -97,6 +97,7 @@ main {
         font-weight: bold;
         position: relative;;
         top: -100px;
+        transition: all 1s;
     }
     .ChoiceText:hover{
         filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.699));
@@ -137,6 +138,7 @@ main {
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-style: none;
         border-radius: 20px;
+        transition: all 1s;
     }
     .activef {
         background: linear-gradient(180deg, rgba(233, 238, 189, 0.8) 0%, rgba(136, 230, 99, 0.76) 100%); ;
@@ -167,6 +169,7 @@ main {
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-style: none;
         border-radius: 20px;
+        transition: all 1s;
     }
     .actives {
         background: linear-gradient(180deg, rgba(157, 204, 139, 0.76) 0%, rgba(242, 255, 113, 0.8) 100%);
@@ -197,6 +200,7 @@ main {
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-style: none;
         border-radius: 20px;
+        transition: all 1s;
     }
     .activet {
         background: linear-gradient(180deg, rgba(157, 204, 139, 0.76) 0%, #F16565 100%);
@@ -211,6 +215,7 @@ main {
         border-radius: 50%;
         right: 30px;
         margin-top: 27px;
+        transition: all 1s;
     }
     .buttonContainer {
         width: 360px;

@@ -151,31 +151,6 @@ main {
         font-size: 20px;
         font-weight: 600;
     }
-    .quiz_box header .timer {
-        color: #ffffff;
-        background: #027f9e;
-        border: 1px solid #01627a;
-        height: 45px;
-        padding: 0 20px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 145px;
-    }
-    }
-    .quiz_box header .timer .timer_sec {
-        font-size: 18px;
-        font-weight: 500;
-        height: 30px;
-        width: 45px;
-        color: #fff;
-        border-radius: 5px;
-        line-height: 30px;
-        text-align: center;
-        background: #343a40;
-        border: 1px solid #343a40;
-        user-select: none;
     }
     .quiz_box section {
         padding: 25px 30px 20px 30px;
@@ -305,7 +280,7 @@ main {
     }
     .result_box .icon{
         padding: 20px;
-        font-size: 250px;
+        font-size: 150px;
         color: #93B785;;
     }
     .complete_text {

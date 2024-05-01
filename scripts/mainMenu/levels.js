@@ -1,5 +1,4 @@
 
-
 const modal = document.querySelector('.modal')
 const levelTitle = document.querySelector('.titlePopup p')
 const levelDescription = document.querySelector('.descriptionPopup')
@@ -104,14 +103,28 @@ const asideLevels = document.querySelectorAll('.loc')
         if (sessionLevel >= 25) {
             asideLevels[4].src = "/6loka.png"
         }
-        console.log(asideLevels)
 
 
 const btn = document.querySelector('.toLevelPointer')
-btn.addEventListener('mousedown' , () => {
-    document.getElementById(sessionLevel).scrollIntoView(
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById(sessionLevel).scrollIntoView( 
         {behavior: "smooth", block: "center", inline: "start"}
     );
+    btn.addEventListener('click', () => {
+        document.getElementById(sessionLevel).scrollIntoView( 
+            {behavior: "smooth", block: "center", inline: "start"}
+        );
+    })
 })
 
 
+const levelPointerTip = document.querySelector('.levelPointerTip');
+
+btn.addEventListener('mouseover', () => {
+    levelPointerTip.style.opacity = 1;
+  });
+  
+  btn.addEventListener('mouseout', () => {
+    levelPointerTip.style.opacity = 0;
+  });
