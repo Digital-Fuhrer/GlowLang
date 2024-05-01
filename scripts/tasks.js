@@ -113,11 +113,20 @@ function loadQuestion()
           xhr.open('POST', '/levelResult');
           xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
           xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                  console.log('Text sent successfully');
+              } else {
+                  console.error('Failed to send text');
+              }
+          }
           };
           xhr.send('result=' + encodeURIComponent(incorrectAnswers));
-          window.location.href = '/mainMenu'
+          setTimeout(() => {
+            window.location.href = '/levelComplete'
+          }, 500);
         }
-        setTimeout(redirect, 2000)
+        setTimeout(redirect, 1500)
       }
       
     } else if (selectedAnswer !== correctAnswer) {
@@ -144,11 +153,7 @@ function loadQuestion()
         taskText.style.display = 'none'
         errText.innerText = 'К сожалению вы проиграли!'
         errText.style.display = 'flex'
-        function redirect() 
-        {
-          window.location.href = '/mainMenu'
-        }
-        setTimeout(redirect, 2000)
+
       } 
     } 
 

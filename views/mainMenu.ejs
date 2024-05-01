@@ -33,6 +33,7 @@
                         }
                     </script>
                 </button>
+
             </div>
         </div>
     </div>
@@ -42,7 +43,7 @@
             <ul class="iconContainer">
                 <li class="icon">
                     <button class="button"></button>
-                    <img src="/1loka.png" alt="">
+                    <img src="/1loka.png" alt="" class='1loc'>
                     <div class="back" data-target="location1"></div>
                     <div class="popup">
                         <p>Переводите слова, используя свой активный словарный запас.</p>
@@ -50,7 +51,7 @@
                 </li>
                 <li class="icon">
                     <button class="button"></button>
-                    <img src="/2loka_lock.png" alt="">
+                    <img src="/2loka_lock.png" alt="" class='loc'>
                     <div class="back" data-target="location2"></div>
                     <div class="popup">
                         <p>Выбирайте правильные фразовые глаголы и идиомы.</p>
@@ -58,7 +59,7 @@
                 </li>
                 <li class="icon">
                     <button class="button"></button>
-                    <img src="/3loka_lock.png" alt="">
+                    <img src="/3loka_lock.png" alt="" class='loc'>
                     <div class="back" data-target="location3"></div>
                     <div class="popup">
                         <p>Как бы вы произнесли эти фразы.</p>
@@ -66,7 +67,7 @@
                 </li>
                 <li class="icon">
                     <button class="button"></button>
-                    <img src="/4loka_lock.png" alt="">
+                    <img src="/4loka_lock.png" alt="" class='loc'>
                     <div class="back" data-target="location4"></div>
                     <div class="popup">
                         <p>Выбирайте правильные формы глаголов.</p>
@@ -74,7 +75,7 @@
                 </li>
                 <li class="icon">
                     <button class="button"></button>
-                    <img src="/5loka_lock.png" alt="">
+                    <img src="/5loka_lock.png" alt="" class='loc'>
                     <div class="back" data-target="location5"></div>
                     <div class="popup">
                         <p>Изучите времена.</p>
@@ -82,7 +83,7 @@
                 </li>
                 <li class="icon">
                     <button class="button"></button>
-                    <img src="/6loka_lock.png" alt="">
+                    <img src="/6loka_lock.png" alt="" class='loc'>
                     <div class="back" data-target="location6"></div>
                     <div class="popup">
                         <p>Изучите всю остальную грамматику без времен.</p>
@@ -91,6 +92,10 @@
             </ul>
         </aside>
         <main>
+                <div class="levelPointerTip">
+                    <p>Перейти к следующему уровню.</p>
+                </div>
+                <div class="toLevelPointer"></div>
             <div class="levels">
                 <div class="locationTitle1 title">
                     <p class="titleText">1. Transfer</p>
@@ -98,12 +103,12 @@
                 <div class="location1 location" id = 'location1'>
                     <div class="levelsContainer">
                         <div class="leftContainer container">
-                            <div class="level2 level">
+                            <div class="level2 level" id="2">
                                 <div class="numberUnder" onclick="first( '<%= userLevels.level %>' ,'2', 'Практика точного перевода слов и фраз - отличный способ улучшить лингвистические навыки и расширить словарный запас.', '#015A71', '#04425E')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level4 level">
+                            <div class="level4 level" id="4">
                                 <div class="numberUnder" onclick="first( '<%= userLevels.level %>' ,'4', 'Практика точного перевода слов и фраз - отличный способ улучшить лингвистические навыки и расширить словарный запас.', '#015A71', '#04425E')">
                                     <div class="number"></div>
                                 </div>
@@ -124,17 +129,17 @@
                                 </div>
                         </div>
                         <div class="rightContainer container">
-                            <div class="level1 level">
+                            <div class="level1 level" id="1">
                                 <div class="numberUnder" onclick="first( '<%= userLevels.level %>', '1', 'Практика точного перевода слов и фраз - отличный способ улучшить лингвистические навыки и расширить словарный запас.', '#015A71', '#04425E')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level3 level">
+                            <div class="level3 level" id="3">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '3', 'Практика точного перевода слов и фраз - отличный способ улучшить лингвистические навыки и расширить словарный запас.', '#015A71', '#04425E')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level5 level">
+                            <div class="level5 level" id="5">
                                 <div class="numberUnder" onclick="first( '<%= userLevels.level %>', '5', 'Сразитесь с боссом и проверьте свои знания!', '#015A71', '#04425E')">
                                     <div class="number"></div>
                                 </div>
@@ -148,12 +153,12 @@
                 <div class="location2 location" id = 'location2'>
                     <div class="levelsContainer">
                         <div class="leftContainer container">
-                            <div class="level2 level" >
+                            <div class="level2 level" id="7" >
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '7', 'Погружение в устойчивые выражения поможет вам лучше понимать речь носителей языка и использовать язык более эффективно.', '#398A7F', '#487B61')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level4 level">
+                            <div class="level4 level" id="9">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '9', 'Погружение в устойчивые выражения поможет вам лучше понимать речь носителей языка и использовать язык более эффективно.', '#398A7F', '#487B61')">
                                     <div class="number"></div>
                                 </div>
@@ -174,17 +179,17 @@
                                 </div>
                         </div>
                         <div class="rightContainer container">
-                            <div class="level1 level">
+                            <div class="level1 level" id="6">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '6', 'Погружение в устойчивые выражения поможет вам лучше понимать речь носителей языка и использовать язык более эффективно.', '#398A7F', '#487B61')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level3 level">
+                            <div class="level3 level" id="8">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '8', 'Погружение в устойчивые выражения поможет вам лучше понимать речь носителей языка и использовать язык более эффективно.', '#398A7F', '#487B61')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level5 level">
+                            <div class="level5 level" id="10">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '10', 'Сразитесь с боссом и проверьте свои знания!', '#398A7F', '#487B61')">
                                     <div class="number"></div>
                                 </div>
@@ -198,12 +203,12 @@
                 <div class="location3 location" id = 'location3'>
                     <div class="levelsContainer">
                         <div class="leftContainer container">
-                            <div class="level2 level">
+                            <div class="level2 level" id="12">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '12', 'Изучение фонетики позволит вам говорить более четко и понимать речь носителей языка даже в случае неочевидных фонетических особенностей.', '#B6B6B6', '#D0D0D0')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level4 level">
+                            <div class="level4 level" id="14">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '14', 'Изучение фонетики позволит вам говорить более четко и понимать речь носителей языка даже в случае неочевидных фонетических особенностей.', '#B6B6B6', '#D0D0D0')">
                                     <div class="number"></div>
                                 </div>
@@ -224,17 +229,17 @@
                                 </div>
                         </div>
                         <div class="rightContainer container">
-                            <div class="level1 level">
+                            <div class="level1 level" id="11">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '11', 'Изучение фонетики позволит вам говорить более четко и понимать речь носителей языка даже в случае неочевидных фонетических особенностей.', '#B6B6B6', '#D0D0D0')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level3 level">
+                            <div class="level3 level" id="13">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '13', 'Изучение фонетики позволит вам говорить более четко и понимать речь носителей языка даже в случае неочевидных фонетических особенностей.', '#B6B6B6', '#D0D0D0')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level5 level">
+                            <div class="level5 level" id="15">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '15', 'Сразитесь с боссом и проверьте свои знания!', '#B6B6B6', '#D0D0D0')">
                                     <div class="number"></div>
                                 </div>
@@ -248,12 +253,12 @@
                 <div class="location4 location" id = 'location4'>
                     <div class="levelsContainer">
                         <div class="leftContainer container">
-                            <div class="level2 level">
+                            <div class="level2 level" id="17">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '17', 'Понимание неправильных глаголов в языке поможет вам избежать ошибок в их использовании и улучшить свою грамматику.', '#AFA86B', '#C9C17D')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level4 level">
+                            <div class="level4 level" id="19">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '19', 'Понимание неправильных глаголов в языке поможет вам избежать ошибок в их использовании и улучшить свою грамматику.', '#AFA86B', '#C9C17D')">
                                     <div class="number"></div>
                                 </div>
@@ -274,17 +279,17 @@
                                 </div>
                         </div>
                         <div class="rightContainer container">
-                            <div class="level1 level">
+                            <div class="level1 level" id="16">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '16', 'Понимание неправильных глаголов в языке поможет вам избежать ошибок в их использовании и улучшить свою грамматику.', '#AFA86B', '#C9C17D')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level3 level">
+                            <div class="level3 level" id="18">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '18', 'Понимание неправильных глаголов в языке поможет вам избежать ошибок в их использовании и улучшить свою грамматику.', '#AFA86B', '#C9C17D')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level5 level">
+                            <div class="level5 level" id="20">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '20', 'Сразитесь с боссом и проверьте свои знания!', '#AFA86B', '#C9C17D')">
                                     <div class="number"></div>
                                 </div>
@@ -298,12 +303,12 @@
                 <div class="location5 location" id = 'location5'>
                     <div class="levelsContainer">
                         <div class="leftContainer container">
-                            <div class="level2 level">
+                            <div class="level2 level" id="22">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '22', 'Изучение времен языка поможет вам правильно выражать временные отношения в своей речи и понимать тексты на языке более полно.', '#B4799B', '#E4C3D6')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level4 level">
+                            <div class="level4 level" id="24">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '24', 'Изучение времен языка поможет вам правильно выражать временные отношения в своей речи и понимать тексты на языке более полно.', '#B4799B', '#E4C3D6')">
                                     <div class="number"></div>
                                 </div>
@@ -324,17 +329,17 @@
                                 </div>
                         </div>
                         <div class="rightContainer container">
-                            <div class="level1 level">
+                            <div class="level1 level" id="21">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '21', 'Изучение времен языка поможет вам правильно выражать временные отношения в своей речи и понимать тексты на языке более полно.', '#B4799B', '#E4C3D6')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level3 level">
+                            <div class="level3 level" id="23">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '23', 'Изучение времен языка поможет вам правильно выражать временные отношения в своей речи и понимать тексты на языке более полно.', '#B4799B', '#E4C3D6')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level5 level">
+                            <div class="level5 level" id="25">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '25', 'Сразитесь с боссом и проверьте свои знания!', '#B4799B', '#E4C3D6')">
                                     <div class="number"></div>
                                 </div>
@@ -348,12 +353,12 @@
                 <div class="location6 location"id = 'location6' >
                     <div class="levelsContainer">
                         <div class="leftContainer container">
-                            <div class="level2 level">
+                            <div class="level2 level" id="27">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '27', 'Понимание грамматики без времен поможет вам строить грамотные предложения, независимо от контекста времени.', '#81391A', '#DC5F29')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level4 level">
+                            <div class="level4 level" id="29">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '29', 'Понимание грамматики без времен поможет вам строить грамотные предложения, независимо от контекста времени.', '#81391A', '#DC5F29')">
                                     <div class="number"></div>
                                 </div>
@@ -374,17 +379,17 @@
                                 </div>
                         </div>
                         <div class="rightContainer container">
-                            <div class="level1 level">
+                            <div class="level1 level" id="26">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '26', 'Понимание грамматики без времен поможет вам строить грамотные предложения, независимо от контекста времени.', '#81391A', '#DC5F29')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level3 level">
+                            <div class="level3 level" id="28">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '28', 'Понимание грамматики без времен поможет вам строить грамотные предложения, независимо от контекста времени.', '#81391A', '#DC5F29')">
                                     <div class="number"></div>
                                 </div>
                             </div>
-                            <div class="level5 level">
+                            <div class="level5 level" id="30">
                                 <div class="numberUnder" onclick="first('<%= userLevels.level %>', '30', 'Сразитесь с боссом и проверьте свои знания!', '#81391A', '#DC5F29')">
                                     <div class="number"></div>
                                 </div>
@@ -416,6 +421,7 @@
         </nav>
     </form>
     </div>
+    <input type="hidden" value="<%= userLevels.level %>" id="session">
 </body>
 <script src="/mainMenu/aside.js" ></script>
 <script src="/mainMenu/levels.js" ></script>

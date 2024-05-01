@@ -7,6 +7,12 @@ const User = require('./models/user')
 const {check, validationResult} = require('express-validator')
 const bodyParser = require('body-parser');
 
+app.use(express.urlencoded({ extended: true }))
+
+app.set('view engine', 'ejs')
+
+app.set('views', path.join(__dirname, 'views'));
+
 app.set('views', path.resolve(__dirname, 'views'))
 
 app.use(express.static(path.join(__dirname, 'styles')));
@@ -153,9 +159,8 @@ router.post('/testResult', urlencodedParser , async (req, res) => {
         req.session.save()
         res.render('mainMenu', {
             userLevels: req.session.user
-        });
-        }
-    )
+            });
+        })
 })
 
 router.post('/choice', urlencodedParser , async (req, res) => {
@@ -183,31 +188,33 @@ router.post('/choice', urlencodedParser , async (req, res) => {
 })
 
 router.post('/levelResult', urlencodedParser, async (req, res) => {
+    try {
         let stars;
         const incorrect = req.body.result;
-        regUser = req.session.user
-        console.log('Вы ответили правильно на все вопросы кроме ' + incorrect)
+        const regUser = req.session.user
 
         if (incorrect < 2) 
         {
             stars = 3;
-        } else if (incorrect >= 2) 
+        } else if (incorrect >= 2 && incorrect < 4 ) 
         {
             stars = 2;
-        } else if (incorrect >= 4) 
+        } else if (incorrect == 4) 
         {
             stars = 1;
         } 
-
         await User.findOneAndUpdate(
             { email: regUser.email },
-            { $set: {level: regUser.level + 1, stars: regUser.stars + stars}}, 
-            {new: true}).then(async () => {
-                console.log('Уровень успешно добавлен')
+            { $set: {level: regUser.level + 1, stars: regUser.stars + stars, levelStars: stars}}).then(async () => {
                 req.session.user = await User.findOne({ email: regUser.email });
+
                 req.session.save()
-        })
+            })
+        } catch (e) {
+            console.log(e)
+        }
 })
+
 
 
 module.exports = router;

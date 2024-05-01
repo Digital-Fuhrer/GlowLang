@@ -29,6 +29,10 @@
     level: {
         type: Number,
         default: 1
+    },
+    levelStars: {
+        type: Number,
+        default: 1
     }
  })
 

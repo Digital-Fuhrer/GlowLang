@@ -29,7 +29,7 @@
         }
       });
       buttonActive = parseInt(visibleLocation.replace('location', ''), 10);
-      console.log(buttonActive)
+
     }
      window.addEventListener('scroll', updateMenuOnScroll);
 

@@ -1,0 +1,309 @@
+body {
+    background: #05727B;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+@keyframes opacity {
+    0% { opacity: 0; };
+    100% { opacity: 1; }
+}
+@keyframes top {
+    0% { transform: translateY(50px); };
+    100% { transform: translateY(0px); }
+}
+@keyframes scale {
+    0% { transform: scale(4); };
+    100% { transform: scale(1); }
+}
+@keyframes scaleFront {
+    0% { transform: scale(1.1); };
+    100% { transform: scale(1); }
+}
+@keyframes rotate {
+    0% { transform: rotate(45deg)};
+    100% { transform: rotate(0deg)}
+}
+@keyframes glow {
+    0% { filter: drop-shadow(0px 0px 30px rgba(191, 202, 91, 1)); };
+    100% { filter: none; }
+}
+@keyframes grayScale {
+    0% { filter: grayscale(80%); };
+    100% { filter: none; }
+}
+
+
+header {
+    /*
+    Лого
+    */
+    .logo {    
+        width: 350px;
+        height: 350px;
+        background: url(/GlowLogo.png);
+        background-repeat: no-repeat;
+        filter: drop-shadow(0px 0px 10px #00000075);
+        position: absolute;
+        left: -100px;
+        top: -150px; 
+        z-index: 3;
+        transition: all .5s;
+        border-style: none;
+    }
+    /*
+    Лого при наведении (увеличивается на 50 пикселей)
+    */
+    .logo:hover {
+        width: 400px;
+        height: 400px;
+        background: url(/GlowLogoHover.png);
+    }
+}
+main {
+    .backGlow {
+        margin-top: -450px;
+        left: calc(50vw - 400px);
+        margin: auto;
+        position: absolute;
+        width: 800px;
+        height: 800px;
+        border-radius: 1282px;
+        background: radial-gradient(48.1% 48.92% at 50% 48.72%, #93B785 0%, rgba(147, 183, 133, 0.00) 100%);
+        z-index: -2;
+        animation: opacity 4s;
+    }
+
+    .levelCompleteTitle {
+        display: flex;
+        align-items: center;
+        width: 500px;
+        height: 100px;
+        background: url(/levelCompleteTitle.png);
+        margin: auto;
+        margin-top: 50px;
+        filter: drop-shadow(0px 0px 30px rgba(198, 204, 140, 0.60));
+        transition: all 1s;
+        animation: opacity 2s ease-in-out, top 1.5s ease-in-out;
+    }
+    .levelCompleteTitle:hover {
+        filter: drop-shadow(0px 0px 40px rgba(198, 204, 140, 0.70));
+        transform: translateY(8px);
+    }
+    .front {
+        width: 350px;
+        height: 75px;
+        background: url(/front.png);
+        margin: auto;
+        filter: drop-shadow(0px 4px 5px #00000050);
+    }
+    .front p {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 24px;
+    }
+    .cloud1, .cloud2 {
+        position: absolute;
+        width: 120px;
+        height: 50px;
+    }
+    .cloud1 {
+        background: url(cloud1.png);
+        background-repeat: no-repeat;
+        left: -30px;
+        bottom: -20px;
+    }
+    .cloud2 {
+        background: url(cloud2.png);
+        background-repeat: no-repeat;
+        right: -60px;
+        top: -20px;
+    }
+    .starContainer  {
+        width: 550px;
+        height: 240px;
+        margin: auto;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: end;
+    }
+    .starBack {
+        background: url(/starBack.png);
+        width: 150px;
+        height: 160px;
+        background-repeat: no-repeat;
+        filter: drop-shadow(0px 4px 5px #00000050);
+        animation: opacity 1s;
+    }
+    .starBack:nth-child(2) {
+        align-self: self-start;
+    }
+    .starFront {
+        height: 125px;
+        width: 125px;
+        border-radius: 100px;
+        background: #E6E6E2;
+        margin: auto;
+        margin-top: 12px;
+        filter: drop-shadow(0px 4px 5px #00000050);
+        display: flex;
+        align-items: center;
+        animation: scaleFront 2s;
+    }
+    .star {
+        width: 88px;
+        height: 90px;
+        background: url(/star.png);
+        margin: auto;
+        animation: scale 1.5s, opacity .5s, rotate 1.5s, glow 2s;
+        transition: all 1s;
+    }
+    .star:hover {
+        transform: scale(1.3);
+        filter: drop-shadow(0px 0px 30px rgba(240, 255, 106, 0.8));
+    }
+    .star2 { 
+        animation-delay: 1s;
+    }
+    .star3 {
+        animation-delay: 2s;
+    }
+    .mainInfo {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 800px;
+        height: 420px;
+        background: linear-gradient(180deg, rgba(233, 238, 189, 0.80) 0%, rgba(157, 204, 139, 0.76) 100%);
+        border-radius: 40px;
+        margin: auto;
+        margin-top: 30px;
+        filter: drop-shadow(0px 4px 5px #00000050);
+        animation: top 1s, opacity 1s;
+    }
+    .rewards {
+        width: 750px;
+        height: 250px;
+        background: linear-gradient(180deg, rgba(233, 238, 189, 0.80) 0%, rgba(157, 204, 139, 0.76) 100%);
+        border-radius: 40px;
+        margin: auto;
+        filter: drop-shadow(0px 4px 5px #00000050);
+        animation: top 1.5s, opacity 1s;
+        transition: all 1s;
+    }
+    .rewards:hover {
+        transform: translateY(8px);
+    }
+    .rewards p {
+        font-size: 36px;
+        margin: 25px 0 0 30px;
+    }
+    .bottomContainer {
+        margin: auto;
+        width: 750px;
+        height: 108px;
+        display: flex;
+        align-items: center;
+    }
+    .buttonsContainer {
+        width: 220px;
+        height: 108px;
+        background: url(/butttonsContainer.png);
+        display: flex;
+        flex-direction: row;
+        align-self: self-start;
+    }
+    .restart {
+        width: 80px;
+        height: 80px;
+        background: url(/repeat.png);
+    }
+    .back {
+        width: 80px;
+        height: 80px;
+        background: url(/back.png);
+    }
+    .restart, .back {
+        margin: 10px 0 0 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .back {
+        margin-left: 30px;
+    }
+    .restart:active {
+        background: url(/repeatActive.png);
+        width: 80px;
+        height: 70px;
+        transform: translateY(9px);
+    }
+    .back:active {
+        background: url(/backActive.png);
+        width: 80px;
+        height: 70px;
+        transform: translateY(9px);
+    }
+    .restartIcon {
+        background: url(/repeatIcon.png);
+        width: 36px;
+        height: 36px;
+    }
+    .backIcon {
+        background: url(/backIcon.png);
+        width: 40px;
+        height: 25px;
+    }
+    .next {
+        width: 160px;
+        height: 66px;
+        background: url(/answerButton.png);
+        margin-left: 370px;
+    }
+    .next:active {
+        height: 58px;
+        background: url(/activeAnswerButton.png);
+        transform: translateY(5px);
+    }
+    .next p {
+        margin: 18px 0 0 50px;
+        font-size: 20px;
+    }
+      /*
+    Контейнер для гор.
+    */
+    .mountainsContainer {
+        margin-top: -530px;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        height: calc(100vh - 350px);
+
+    /*
+    Задние горы.
+    */
+    .backMountains {
+        width: 100%;
+        height: 700px;
+        background: url(/backMountains.png);
+        position: absolute;
+        z-index: -3;
+    }
+    /*
+    Передние горы.
+    */
+    .frontMountains {
+        width: 100%;
+        height: 600px;
+        background: url(/frontMountains.png);
+        z-index: -2;
+        display: flex;
+        align-items: center;
+        }
+    }
+}

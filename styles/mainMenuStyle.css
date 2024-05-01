@@ -293,6 +293,36 @@ main {
     
 }
 
+.toLevelPointer {
+    width: 100px;
+    height: 100px;
+    background: url(/toTheLevel.png);
+    position: fixed;
+    bottom: 50px;
+    right: 300px;
+    z-index: 50;
+    filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.55));
+}
+.levelPointerTip {
+    width: 150px;
+    height: 100px;
+    position: fixed;
+    bottom: 170px;
+    right: 275px;
+    z-index: 50;
+    background: url(/popupLevelTip.png);
+
+}
+
+.levelArrow:hover + .levelPointerTip {
+    background: black;
+}
+.toLevelPointer:active {
+    width: 100px;
+    height: 100px;
+    background: url(/toTheLevel_active.png);
+}
+
 .levels {
     min-height: 100%;
     margin-bottom: -350px;
@@ -384,7 +414,7 @@ main {
     background-repeat: no-repeat;
     filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.25));
     margin-left: 40px;
-    transition: all .7s;
+    transition: all .2s;
     cursor: pointer;
 }
 .location1 > .levelsContainer > .container > .level {
@@ -474,14 +504,48 @@ main {
 }
 
 .location > .levelsContainer > .container > .level > .numberUnder {
-    width: 160px;
-    height: 120px;
+    width: 158px;
+    height: 118px;
     background: url(/numberUnder.png);
     background-repeat: no-repeat;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin: 12px 0 0 75px;
-    transition: all .7s;
     cursor: pointer;
+}
+.location > .levelsContainer > .container > .level > .numberUnderLock {
+    width: 158px;
+    height: 118px;
+    background: url(/levelLock.png);
+    background-repeat: no-repeat;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin: 12px 0 0 75px;
+    cursor: pointer;
+}
+.location > .levelsContainer > .container > .level > .numberUnderDone {
+    width: 158px;
+    height: 118px;
+    background: url(/levelDone.png);
+    background-repeat: no-repeat;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin: 12px 0 0 75px;
+    cursor: pointer;
+}
+.location > .levelsContainer > .container > .level > .numberUnderDone:active {
+    background: url(/levelDone_active.png);
+    background-repeat: no-repeat;
+    filter: drop-shadow(0px 0px 15px #ECF590);
+    margin: 20px 0 0 75px;
+}
+.location > .levelsContainer > .container > .level > .numberUnderLock:hover {
+    background-repeat: no-repeat;
+    filter: drop-shadow(0px 0px 15px #fbffcd);
+    margin: 12px 0 0 75px;
+}
+.location > .levelsContainer > .container > .level > .numberUnderLock:active {
+    background: url(/levelLock_active.png);
+    background-repeat: no-repeat;
+    filter: drop-shadow(0px 0px 15px #ECF590);
+    margin: 20px 0 0 75px;
 }
 .location > .levelsContainer > .container > .level > .numberUnder:hover {
     background: url(/numberUnder_hover.png);
@@ -494,7 +558,6 @@ main {
     background-repeat: no-repeat;
     filter: drop-shadow(0px 0px 15px #ECF590);
     margin: 20px 0 0 75px;
-    transition: none;
 }
 
 .number {
@@ -523,7 +586,24 @@ main {
     background: url(/num5.png);
     margin: 20px 0 0 50px;
 }
-
+.location > .levelsContainer > .container > .level1 > .numberUnderDone > .number {
+    background: url(/num1.png);
+}
+.location > .levelsContainer > .container > .level2 > .numberUnderDone > .number {
+    background: url(/num2.png);
+}
+.location > .levelsContainer > .container > .level3 > .numberUnderDone > .number {
+    background: url(/num3.png);
+}
+.location > .levelsContainer > .container > .level4 > .numberUnderDone > .number {
+    background: url(/num4.png);
+}
+.location > .levelsContainer > .container > .level5 > .numberUnderDone > .number {
+    width: 55px;
+    height: 55px;
+    background: url(/num5.png);
+    margin: 20px 0 0 50px;
+}
 .title {
     width: 400px;
     height: 80px;

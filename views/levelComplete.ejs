@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/levelComplete.css">
+    <link rel="stylesheet" href="/reset.css">
+    <title>GlowLang</title>
+</head>
+<body>
+    <header>
+            <button class="logo"></button>
+    </header>
+    <main>
+        <div class="backGlow"></div>
+        <div class="levelCompleteTitle">
+            <div class="cloud1"></div>
+                <div class="front">
+                    <p>Уровень пройден!</p>
+                </div>
+            <div class="cloud2"></div>
+        </div>
+        <div class="starContainer">
+            <div class="starBack">
+                <div class="starFront">
+                    <div class="star star1"></div>
+                </div>
+            </div>
+            <div class="starBack">
+                <div class="starFront">
+                    <% if (userLevels.levelStars >= 2) {%>
+                        <div class="star star2"></div>
+                    <%}%>
+                </div>
+            </div>
+            <div class="starBack">
+                <div class="starFront">
+                    <% if (userLevels.levelStars == 3) {%>
+                        <div class="star star3"></div>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+        <div class="mainInfo">
+            <div class="rewards">
+                <p>Награды: <%= userLevels.levelStars%> ☆</p>
+            </div>
+            <div class="bottomContainer">
+                <div class="buttonsContainer">
+                    <div class="restart">
+                        <div class="restartIcon">
+                            
+                        </div>
+                    </div>
+                    <div class="back" onclick="back()">
+                        <div class="backIcon"></div>
+                        <script>
+                            function back(){
+                                window.location.href='/mainMenu';
+                            }
+                        </script>
+                    </div>
+                </div>
+                <div class="next" onclick="toLevel()">
+                    <p>Далее</p>
+                </div>
+                <script>
+                    function toLevel() {
+                    window.location.href='/level';
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="mountainsContainer">
+            <div class="backMountains"></div>
+            <div class="frontMountains"></div>
+        </div>
+    </main>
+</body>
+</html>
