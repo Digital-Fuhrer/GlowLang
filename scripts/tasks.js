@@ -1,7 +1,25 @@
+
 const xhr = new XMLHttpRequest();
 
 window.onload = function()
 {
+
+  function getUrlVars()
+  {
+    var vars = [], lvl
+    let levelNumber = location.search.substring(1).split("&")
+    for(var i = 0; i < levelNumber.length; i++)
+    {
+        lvl = levelNumber[i].split('=');
+        vars.push(lvl[0]);
+        vars[lvl[0]] = lvl[1];
+    }
+    return vars
+  }
+
+  var levelNumber =  parseInt(getUrlVars()["level"], 10)
+  var oldStars =  parseInt(getUrlVars()["stars"], 10)
+
 
 function getRandomInRange(max) {
     return Math.floor(Math.random() * max);
@@ -14,8 +32,26 @@ const answers = document.querySelectorAll(".answer");
 const answersText = document.querySelectorAll(".text");
 
 const monsterImage = document.querySelector('.monsterImage')
-const monsterBars = document.querySelectorAll('.bar-monster')
 const allyBars = document.querySelectorAll('.bar-ally')
+
+const monster = document.querySelector('.health-monster')
+const boss = document.querySelector('.health-boss')
+
+const sessionLvl = parseInt(document.getElementById('session1').value, 10)
+
+if (levelNumber % 5 == 0) 
+{
+  monster.remove()
+} else if (levelNumber % 5 !== 0) 
+{
+  boss.remove()
+}
+
+const monsterBars = document.querySelectorAll('.bar-monster')
+let replay = false;
+
+if (levelNumber < sessionLvl) {replay = true} else {replay = false}
+
 
 let randomMonster = getRandomInRange(6)
 monsterImage.style.background = `url(/monster${randomMonster}.png)`
@@ -45,9 +81,7 @@ const helpBtn = document.querySelector('.questions')
   
 })
 
-
 loadQuestion()
-
 
 function loadQuestion() 
 {
@@ -73,8 +107,11 @@ function loadQuestion()
       if (isActive === false) {
       const selectedAnswer = index;
       isActive = true;
-      checkAnswer(selectedAnswer);
-      console.log(isActive)
+      if (monsterBars.length == 5) {
+      checkAnswer(selectedAnswer)
+      } else if (monsterBars.length == 10) {
+        checkAnswerBoss(selectedAnswer)
+      }
       }
   });
 
@@ -121,7 +158,11 @@ function loadQuestion()
               }
           }
           };
+          if (!replay) {
           xhr.send('result=' + encodeURIComponent(incorrectAnswers));
+          } else if (replay) {
+            xhr.send(`result=${incorrectAnswers}` + `&oldStars=${oldStars}` + `&levelNumber=${levelNumber}`);
+          }
           setTimeout(() => {
             window.location.href = '/levelComplete'
           }, 500);
@@ -145,6 +186,91 @@ function loadQuestion()
           setTimeout( loadQuestion, 2000)
 
       } else if (incorrectAnswers === 5) return lose()
+      function lose() {
+
+        answers[selectedAnswer].classList.add('wrongAnswer')
+        allyBars[0].classList.add('bar-empty')
+
+        taskText.style.display = 'none'
+        errText.innerText = 'К сожалению вы проиграли!'
+        errText.style.display = 'flex'
+
+      } 
+    } 
+
+    
+  }
+
+
+  function checkAnswerBoss(selectedAnswer) {
+    
+    const correctAnswer = randomQuestion.answer;
+
+
+    if (selectedAnswer === correctAnswer) {
+        correctAnswers++;
+        console.log('Правильных ответов:' + correctAnswers)
+        if (correctAnswers !== 10) {
+          randomQuestion = questions[getRandomInRange(questions.length)];
+
+          taskText.style.display = 'none'
+          rightText.style.display = 'flex'
+
+          answers[selectedAnswer].classList.add('rightAnswer')
+
+          monsterBars[10 - correctAnswers].classList.add('bar-empty')
+
+          setTimeout( loadQuestion , 2000)
+      } else if (correctAnswers === 10) return victory()
+      function victory() {
+
+        answers[selectedAnswer].classList.add('rightAnswer')
+        monsterBars[0].classList.add('bar-empty')
+
+        taskText.style.display = 'none'
+        rightText.innerText = 'Вы успешно ответили на все задания!'
+        rightText.style.display = 'flex'
+        function redirect() 
+        {
+          xhr.open('POST', '/levelResult');
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                  console.log('Text sent successfully');
+              } else {
+                  console.error('Failed to send text');
+              }
+          }
+          };
+          if (!replay) {
+            xhr.send('result=' + encodeURIComponent(incorrectAnswers));
+            } else if (replay) {
+              xhr.send('result=' + encodeURIComponent(incorrectAnswers) + '&oldStars=' + encodeURIComponent(oldStars));
+            }
+          setTimeout(() => {
+            window.location.href = '/levelComplete'
+          }, 500);
+        }
+        setTimeout(redirect, 1500)
+      }
+      
+    } else if (selectedAnswer !== correctAnswer) {
+        incorrectAnswers++;
+        console.log('Неправильных ответов:' + incorrectAnswers)
+        if (incorrectAnswers !== 10) {
+          randomQuestion = questions[getRandomInRange(questions.length)];
+
+          taskText.style.display = 'none'
+          errText.style.display = 'flex'
+
+          answers[selectedAnswer].classList.add('wrongAnswer')
+
+          allyBars[5 - incorrectAnswers].classList.add('bar-empty')
+
+          setTimeout( loadQuestion, 2000)
+
+      } else if (incorrectAnswers === 10) return lose()
       function lose() {
 
         answers[selectedAnswer].classList.add('wrongAnswer')

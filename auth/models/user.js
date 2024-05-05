@@ -32,8 +32,10 @@
     },
     levelStars: {
         type: Number,
-        default: 1
-    }
+        default: 1,
+    },
+    levelStarsCount: [Number]
+    
  })
 
  module.exports = model('user', schema);

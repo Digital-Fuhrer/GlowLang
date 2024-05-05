@@ -41,13 +41,25 @@
             <div class="levelHelp help">
                 <p>За правильные ответы здоровье монстра будет уменьшаться, за неправильные - ваше.</p>
             </div>
-            <div class="health-monster">
-                <div class="bar-monster"></div>
-                <div class="bar-monster"></div>
-                <div class="bar-monster"></div>
-                <div class="bar-monster"></div>
-                <div class="bar-monster"></div>
-            </div>
+                <div class="health-monster" id="mnstr">
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                </div>
+                <div class="health-boss" id="boss">
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                    <div class="bar-monster"></div>
+                </div>
             <div class="icon">
                 <div class="cloud1"></div>
                 <div class="cloud2"></div>
@@ -104,6 +116,7 @@
             <div class="backMountains"></div>
             <div class="frontMountains"></div>
         </div>
+        <input type="hidden" value="<%= userLevels.level %>" id="session1">
     </main>
     <script src="/tasks.js" ></script>
     <script src="/questions/easy/1location.js" ></script>

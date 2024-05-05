@@ -191,7 +191,10 @@ router.post('/levelResult', urlencodedParser, async (req, res) => {
     try {
         let stars;
         const incorrect = req.body.result;
-        const regUser = req.session.user
+        let levelNumber = req.body.levelNumber - 1;
+        const regUser = req.session.user;
+        let oldStars;
+        let addLevel = 1;
 
         if (incorrect < 2) 
         {
@@ -203,13 +206,38 @@ router.post('/levelResult', urlencodedParser, async (req, res) => {
         {
             stars = 1;
         } 
-        await User.findOneAndUpdate(
-            { email: regUser.email },
-            { $set: {level: regUser.level + 1, stars: regUser.stars + stars, levelStars: stars}}).then(async () => {
-                req.session.user = await User.findOne({ email: regUser.email });
 
-                req.session.save()
+        if (req.body.oldStars) 
+        {
+            oldStars = req.body.oldStars
+
+            await User.findOneAndUpdate(
+                { email: regUser.email },
+                { $set: {level: regUser.level, stars: regUser.stars + stars - oldStars, levelStars: stars}}).then(async () => {
+                    req.session.user = await User.findOne({ email: regUser.email });
+                })
+            await User.findOneAndUpdate(
+                {
+                    email: regUser.email,
+                },
+                {
+                    $set: { [`levelStarsCount.${levelNumber}`]: stars }
+                }
+            ).then(async () => {
+                req.session.user = await User.findOne({ email: regUser.email });
             })
+                req.session.save()
+        } else {
+            oldStars = 0
+            await User.findOneAndUpdate(
+                { email: regUser.email },
+                { $set: {level: regUser.level + addLevel, stars: regUser.stars + stars - oldStars, levelStars: stars}, $push: {levelStarsCount: stars}}).then(async () => {
+                    req.session.user = await User.findOne({ email: regUser.email });
+    
+                    req.session.save()
+                })
+        }
+
         } catch (e) {
             console.log(e)
         }

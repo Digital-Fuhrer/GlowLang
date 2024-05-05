@@ -111,10 +111,24 @@ body {
                 z-index: 12;
             }
 
+            .completedLevelStars {
+                width: 170px;
+                height: 50px;
+                margin: auto;
+                margin-top: 25px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .star {
+                width: 50px;
+                height: 50px;
+                background: url(/smallStar.png);
+            }
+
             .buttonPopup{
                 width: 200px;
                 height: 60px;
-                margin-top: 67px;
                 background: url(/popupButton.png);
                 background-repeat: no-repeat;
                 border: none;
@@ -539,16 +553,21 @@ main {
     margin: 12px 0 0 75px;
     cursor: pointer;
 }
+.location > .levelsContainer > .container > .level > .numberUnderDone:hover {
+    filter: drop-shadow(0px 0px 15px #ECF590);
+    transition: all .1s;
+}
 .location > .levelsContainer > .container > .level > .numberUnderDone:active {
     background: url(/levelDone_active.png);
     background-repeat: no-repeat;
-    filter: drop-shadow(0px 0px 15px #ECF590);
+    filter: drop-shadow(0px 0px 25px #f8ffab);
     margin: 20px 0 0 75px;
 }
 .location > .levelsContainer > .container > .level > .numberUnderLock:hover {
     background-repeat: no-repeat;
     filter: drop-shadow(0px 0px 15px #fbffcd);
     margin: 12px 0 0 75px;
+    transition: all .1s;
 }
 .location > .levelsContainer > .container > .level > .numberUnderLock:active {
     background: url(/levelLock_active.png);
@@ -561,6 +580,7 @@ main {
     background-repeat: no-repeat;
     filter: drop-shadow(0px 0px 15px #ECF590);
     margin: 12px 0 0 75px;
+    transition: all .1s;
 }
 .location > .levelsContainer > .container > .level > .numberUnder:active {
     background: url(/numberUnder_active.png);

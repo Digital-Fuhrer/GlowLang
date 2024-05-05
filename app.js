@@ -124,7 +124,9 @@ app.get('/profilePage', (req, res) => {
     })
 })
 app.get('/level', (req, res) => {
-    res.render('level')
+    res.render('level', {
+        userLevels: req.session.user
+    })
 })
 app.get('/levelComplete', async (req, res) => {
     res.render('levelComplete', {

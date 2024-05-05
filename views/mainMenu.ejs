@@ -20,18 +20,17 @@
                     <p class="titleText">1 Уровень</p>
                 <div class="completedIcon completedIcon1"></div>
                 </div>
-                <p class="descriptionPopup">
-                </p>
+                    <div class="completedLevelStars">
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                    </div>
+                <p class="descriptionPopup"></p>
                 <button class="buttonBack buttonPopup" onclick="backPopup()">
                     <p>Назад</p>
                 </button>
-                <button class="buttonStart buttonPopup" onclick="toLevel()">
+                <button class="buttonStart buttonPopup">
                     <p>Начать</p>
-                    <script>
-                        function toLevel() {
-                        window.location.href='/level';
-                        }
-                    </script>
                 </button>
 
             </div>
@@ -92,12 +91,12 @@
             </ul>
         </aside>
         <main>
-            <div class="levelPointerContainer">
+            <!-- <div class="levelPointerContainer">
                 <div class="levelPointerTip">
                     <p>Перейти к следующему уровню.</p>
                 </div>
                 <div class="toLevelPointer"></div>
-            </div>
+            </div> -->
             <div class="levels">
                 <div class="locationTitle1 title">
                     <p class="titleText">1. Transfer</p>
@@ -424,6 +423,7 @@
     </form>
     </div>
     <input type="hidden" value="<%= userLevels.level %>" id="session">
+    <input type="hidden" value="<%= userLevels.levelStarsCount %>" id="user">
 </body>
 <script src="/mainMenu/aside.js" ></script>
 <script src="/mainMenu/levels.js" ></script>
