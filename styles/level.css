@@ -6,7 +6,22 @@ body {
     font-weight: bold;
     color: white;
 }
+/*Анимации*/
 
+/*
+Появление передних гор снизу.
+*/
+@keyframes frontMountainsAnimation { 
+    0% { transform: translateY(50%)}
+    100% { transform: translateY(0%)}
+}
+/*
+Появление задних гор снизу.
+*/
+@keyframes backMountainsAnimation {
+    0% { transform: translateY(50%)}
+    100% { transform: translateY(0%)}
+}
 @keyframes clouds {
     0% { transform: translateY(0px);}
     50% { transform: translateY(-15px);}
@@ -447,6 +462,12 @@ main {
         display: flex;
         align-items: center;
         }
+    }
+    .frontMountains {
+        animation: frontMountainsAnimation 1s;
+    }
+    .backMountains {
+        animation: backMountainsAnimation 1.5s;
     }
 
 }

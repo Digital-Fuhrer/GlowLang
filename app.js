@@ -133,6 +133,9 @@ app.get('/levelComplete', async (req, res) => {
         userLevels: req.session.user
     })
 })
+app.get('/finalPage', (req, res) => {
+    res.render('finalPage')
+})
 
 start();
 

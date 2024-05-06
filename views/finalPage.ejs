@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/finalPage.css">
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/footer.css">
+    <title>GlowLang</title>
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="logo()"></div>
+        <script>
+            function logo() {
+            window.location.href='/mainMenu';
+            }
+        </script>
+    </header>
+        <main>
+            <div class="mainInfoContainer">
+                <div class="mainInfo">
+                    <div class="title">
+                        <p>Вы успешно прошли все уровни!</p>
+                    </div>
+                    <p class="description">
+                        Дорогой пользователь,
+                        Спасибо вам за то, что прошли все уровни на нашем сайте! Надеюсь, что вы наслаждались процессом изучения английского языка и нашими материалами.
+                        <p class="description">Этот сайт - результат моей собственной разработки, и я рад, что вы выбрали его для своего обучения. Если у вас есть какие-либо вопросы, предложения или замечания, не стесняйтесь обращаться ко мне по адресу <a href="mailto:feikrpg@yandex.ru" target="_blank" >feikrpg@yandex.ru</a>. Буду рад услышать ваше мнение и готов сотрудничать для улучшения сайта.</p>
+                        <p class="description">Спасибо за ваше время и усилия!</p>
+                    </p>
+                    <button class="back" onclick="back()"><p>Назад</p></button>
+                    <script>
+                        function back() {
+                            window.location.href = '/mainMenu'
+                        }
+                    </script>
+                </div>
+            </div>
+            <%- include('../views/partials/mountains'); %>
+        </main>
+<%- include('../views/partials/footer'); %>
+</body>
+</html>

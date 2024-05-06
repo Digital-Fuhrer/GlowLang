@@ -249,7 +249,11 @@ function loadQuestion()
               xhr.send('result=' + encodeURIComponent(incorrectAnswers) + '&oldStars=' + encodeURIComponent(oldStars));
             }
           setTimeout(() => {
-            window.location.href = '/levelComplete'
+            if (levelNumber == 30) {
+              window.location.href = '/finalPage'
+            } else {
+              window.location.href = '/levelComplete'
+            }
           }, 500);
         }
         setTimeout(redirect, 1500)
