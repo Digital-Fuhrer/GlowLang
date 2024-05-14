@@ -51,8 +51,12 @@
             <div class="bottomContainer">
                 <div class="buttonsContainer">
                     <div class="restart">
-                        <div class="restartIcon">
-                            
+                        <div class="restartIcon" onclick="rel()">
+                            <script>
+                                function rel(){
+                                    window.location.href='/level';
+                                }
+                            </script>
                         </div>
                     </div>
                     <div class="back" onclick="back()">
