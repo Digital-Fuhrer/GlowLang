@@ -89,7 +89,6 @@ function loadQuestion()
   answer.classList.remove('wrongAnswer')
   answer.classList.remove('rightAnswer')
   })
-  console.log('Новый вопрос')
   isActive = false;
   //Загрузка текста вопроса и ответов
   errText.style.display = 'none'
